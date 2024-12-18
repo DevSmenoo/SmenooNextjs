@@ -1,0 +1,24 @@
+/* Stili specifici per la bottom bar */
+.bottomBarMenu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .with-action {
+    cursor: pointer;
+  }
+  
+  .counterBoxProvModal,
+  .counterBoxProvModalFiltri {
+    position: relative;
+  }
+  
+  .counterBoxProvModal p,
+  .counterBoxProvModalFiltri p {
+    margin: 0;
+    padding: 0;
+  }
+  
