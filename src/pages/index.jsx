@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useLocale } from '../context/LocaleContext'; // Importa il contesto
 import MenuButton from '@/components/MenuButton';
 import { createGlobalStyle } from 'styled-components';
 import Script from 'next/script';
+import Image from 'next/image';
+
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -103,41 +105,41 @@ const App = () => {
   const [error, setError] = useState(null);
   const { idLocale } = useLocale(); // Usa il contesto per ottenere l'ID del locale
 
+  const fetchLocaleInfo = useCallback(async () => {
+    try {
+      const response = await fetch(`/api/getLocaleInfo?idLocale=${idLocale}`);
+      const text = await response.text();
+      if (!response.ok) {
+        throw new Error(`Network response was not ok. Status: ${response.status}`);
+      }
+      const data = JSON.parse(text);
+      setLocaleInfo(data);
+    } catch (error) {
+      setError(error.message);
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }, [idLocale]);
+
+  const fetchMenus = useCallback(async () => {
+    try {
+      const response = await fetch(`/api/getMenus?idLocale=${idLocale}`);
+      const text = await response.text();
+      if (!response.ok) {
+        throw new Error(`Network response was not ok. Status: ${response.status}`);
+      }
+      const data = JSON.parse(text);
+      console.log('Menus:', data);
+      setMenus(data);
+    } catch (error) {
+      setError(error.message);
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  }, [idLocale]);
+
   useEffect(() => {
-    const fetchLocaleInfo = async () => {
-      try {
-        const response = await fetch(`/api/getLocaleInfo?idLocale=${idLocale}`);
-        const text = await response.text();
-        if (!response.ok) {
-          throw new Error(`Network response was not ok. Status: ${response.status}`);
-        }
-        const data = JSON.parse(text);
-        setLocaleInfo(data);
-      } catch (error) {
-        setError(error.message);
-        console.error('There was a problem with the fetch operation:', error);
-      }
-    };
-
-    const fetchMenus = async () => {
-      try {
-        const response = await fetch(`/api/getMenus?idLocale=${idLocale}`);
-        const text = await response.text();
-        if (!response.ok) {
-          throw new Error(`Network response was not ok. Status: ${response.status}`);
-        }
-        const data = JSON.parse(text);
-        console.log('Menus:', data);
-        setMenus(data);
-      } catch (error) {
-        setError(error.message);
-        console.error('There was a problem with the fetch operation:', error);
-      }
-    };
-
     fetchLocaleInfo();
     fetchMenus();
-  }, [idLocale]);
+  }, [fetchLocaleInfo, fetchMenus]);
 
   return (
     <div className="App desktopIndexPad">
@@ -152,7 +154,7 @@ const App = () => {
       <section className="bg-menu-header"></section>
       <section className="mainSecMenuHome">
         <div className="text-center logoBox">
-          {localeInfo.logo && <img className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" />}
+          {localeInfo.logo && <Image className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" />}
           <h1>{localeInfo.nomeLocale}</h1>
           <p className="text-left px-4">{localeInfo.descrizione}</p>
         </div>
@@ -163,17 +165,17 @@ const App = () => {
         <div className="text-center moveSocialHome">
           {localeInfo.instagramLink && (
             <a href={localeInfo.instagramLink} target="_blank" title={`Pagina Instagram di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <img className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" />
+              <Image className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" />
             </a>
           )}
           {localeInfo.facebookLink && (
             <a href={localeInfo.facebookLink} target="_blank" title={`Pagina Facebook di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <img className="d-inline px-3" src="/img/fb.svg" alt="Facebook" />
+              <Image className="d-inline px-3" src="/img/fb.svg" alt="Facebook" />
             </a>
           )}
           {localeInfo.tiktokLink && (
             <a href={localeInfo.tiktokLink} target="_blank" title={`Pagina TikTok di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <img className="d-inline px-3" src="/img/tt.svg" alt="TikTok" />
+              <Image className="d-inline px-3" src="/img/tt.svg" alt="TikTok" />
             </a>
           )}
         </div>
@@ -181,7 +183,7 @@ const App = () => {
           <br /><br />
           <div className="text-center text-white">
             <a href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-              <img className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" />
+              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" />
             </a>
           </div>
         </div>

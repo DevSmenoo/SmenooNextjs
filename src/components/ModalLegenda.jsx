@@ -1,4 +1,6 @@
 import React from "react";
+import Image from 'next/image';
+
 
 const ModalLegenda = () => (
   <div
@@ -27,42 +29,42 @@ const ModalLegenda = () => (
         </div>
         <div className="modal-body modal-body-legenda">
           <div className="d-flex">
-            <img src="/img/4/legenda-senza-glutine.svg" />
+            <Image src="/img/4/legenda-senza-glutine.svg" />
             <p>Senza glutine</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-vegano.svg" />
+            <Image src="/img/4/legenda-vegano.svg" />
             <p>Vegano</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-vegetariano.svg" />
+            <Image src="/img/4/legenda-vegetariano.svg" />
             <p>Vegetariano</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-biologico.svg" />
+            <Image src="/img/4/legenda-biologico.svg" />
             <p>Biologico</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-piccante.svg" />
+            <Image src="/img/4/legenda-piccante.svg" />
             <p>Piccante</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-senza-lattosio.svg" />
+            <Image src="/img/4/legenda-senza-lattosio.svg" />
             <p>Senza lattosio</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-congelato.svg" />
+            <Image src="/img/4/legenda-congelato.svg" />
             <p>Congelato</p>
           </div>
           <hr />
           <div className="d-flex">
-            <img src="/img/4/legenda-abbattuto.svg" />
+            <Image src="/img/4/legenda-abbattuto.svg" />
             <p>Abbattuto</p>
           </div>
         </div>

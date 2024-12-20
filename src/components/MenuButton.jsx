@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
+
 
 const MenuButton = ({ menu }) => {
   const router = useRouter();
@@ -15,7 +17,7 @@ const MenuButton = ({ menu }) => {
     <div className="container courseBox text-center" onClick={() => startSessionAndRedirect(menu.id)}>
       <button className="courseRow">
         <p className="d-inline">{menu.nome}</p>
-        <img className="frecciaCourse d-inline" src="/img/Freccia-attiva-preferiti.svg" alt="Arrow" />
+        <Image className="frecciaCourse d-inline" src="/img/Freccia-attiva-preferiti.svg" alt="Arrow" />
       </button>
     </div>
   );

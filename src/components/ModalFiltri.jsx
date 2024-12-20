@@ -1,4 +1,6 @@
 import React from "react";
+import Image from 'next/image';
+
 
 const ModalFiltri = ({ onFilterChange }) => (
   <div
@@ -21,7 +23,7 @@ const ModalFiltri = ({ onFilterChange }) => (
         <div className="modal-body">
           <div className="container popupMenuSwitch">
             <div className="d-flex">
-              <img src="/img/Hot.svg" />
+              <Image src="/img/Hot.svg" />
               <p className="filtriModalTitle">Hot</p>
               <div className="form-check form-switch">
                 <input
@@ -39,7 +41,7 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex">
-              <img src="/img/Vegano-grigia.svg" />
+              <Image src="/img/Vegano-grigia.svg" />
               <p className="filtriModalTitle">Vegano</p>
               <div className="form-check form-switch">
                 <input
@@ -57,7 +59,7 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex">
-              <img src="/img/Vegetariano-grigia.svg" />
+              <Image src="/img/Vegetariano-grigia.svg" />
               <p className="filtriModalTitle">Vegetariano</p>
               <div className="form-check form-switch">
                 <input
@@ -75,7 +77,7 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex">
-              <img className="sGlutLeg" src="/img/Senza-Glutine-Grigia.svg" />
+              <Image className="sGlutLeg" src="/img/Senza-Glutine-Grigia.svg" />
               <p className="filtriModalTitle">Naturalmente privo di glutine</p>
               <div className="form-check form-switch">
                 <input

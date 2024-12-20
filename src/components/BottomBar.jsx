@@ -5,6 +5,8 @@ import ModalFiltri from "./ModalFiltri";
 import ModalMenuSwitch from "./ModalMenuSwitch";
 import ModalSommelier from "./ModalSommelier";
 import ModalLegenda from "./ModalLegenda";
+import Image from 'next/image';
+
 
 const BottomBar = ({ activeFiltersCount }) => {
   const { count: favoriteCount } = useFavorites();
@@ -20,15 +22,19 @@ const BottomBar = ({ activeFiltersCount }) => {
           </p>
         </div>
       )}
-      <img
+      <Image
         data-bs-toggle="modal"
         data-bs-target="#preferitiModal"
         className="with-action"
         id="preferitiIcon"
         name="image2"
         src="/img/preferiti-inactive.svg"
+        alt="Preferiti Icon"
+        width={24} // Sostituisci con la larghezza corretta
+        height={24} // Sostituisci con l'altezza corretta
       />
-      <img
+
+      <Image
         data-bs-toggle="modal"
         data-bs-target="#sommelierModal"
         className="with-action"
@@ -43,7 +49,7 @@ const BottomBar = ({ activeFiltersCount }) => {
             {/* Mostra il conteggio */}
         </div>
       )}
-      <img
+      <Image
         data-bs-toggle="modal"
         data-bs-target="#filtriModal"
         className="with-action"
@@ -51,8 +57,8 @@ const BottomBar = ({ activeFiltersCount }) => {
         name="image3"
         src="/img/filtri-inactive.svg"
       />
-      <img className="dotActive" src="/img/blue-active.svg" />
-      <img
+      <Image className="dotActive" src="/img/blue-active.svg" />
+      <Image
         data-bs-toggle="modal"
         data-bs-target="#legendaModal"
         className="with-action"

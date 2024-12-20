@@ -7,6 +7,8 @@ import { useFavorites } from "@/context/FavoritesContext";
 import NavBar from "@/components/NavBar";
 import BottomBar from "@/components/BottomBar";
 import ModalFiltri from "@/components/ModalFiltri";
+import Image from 'next/image';
+import Script from 'next/script';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -256,7 +258,7 @@ const MenuPage = () => {
                   <p className="d-inline">
                     <b>{dish.nome}</b>
                   </p>
-                  <img
+                  <Image
                     className="starPr floatR d-inline"
                     src={
                       favorites.some((fav) => fav.id === dish.id)
@@ -286,7 +288,7 @@ const MenuPage = () => {
               {/* Icons for allergens, vini, tags, etc */}
               {dish.allergeni && (
                 <div>
-                  <img
+                  <Image
                     data-bs-toggle="modal"
                     data-bs-target={`#infoModal${dish.id}`}
                     className="floatR infoAll"
@@ -333,49 +335,49 @@ const MenuPage = () => {
                 className="floatR"
               >
                 {dish.tag && dish.tag.includes("senza glutine") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-senza-glutine.svg`}
                     alt="senza glutine"
                   />
                 )}
                 {dish.tag && dish.tag.includes("vegano") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-vegano.svg`}
                     alt="vegano"
                   />
                 )}
                 {dish.tag && dish.tag.includes("vegetariano") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-vegetariano.svg`}
                     alt="vegetariano"
                   />
                 )}
                 {dish.tag && dish.tag.includes("biologico") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-biologico.svg`}
                     alt="biologico"
                   />
                 )}
                 {dish.tag && dish.tag.includes("piccante") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-piccante.svg`}
                     alt="piccante"
                   />
                 )}
                 {dish.tag && dish.tag.includes("senza lattosio") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-senza-lattosio.svg`}
                     alt="senza lattosio"
                   />
                 )}
                 {dish.tag && dish.tag.includes("congelato") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-congelato.svg`}
                     alt="congelato"
                   />
                 )}
                 {dish.tag && dish.tag.includes("abbattuto") && (
-                  <img
+                  <Image
                     src={`/img/${idLocale}/legenda-abbattuto.svg`}
                     alt="abbattuto"
                   />
@@ -390,7 +392,7 @@ const MenuPage = () => {
                     data-bs-target={`#viniModal${dish.id}`}
                     className="floatR"
                   >
-                    <img
+                    <Image
                       src={`/img/${idLocale}/icon-vini.svg`}
                       alt="Vini abbinati"
                     />
@@ -437,7 +439,7 @@ const MenuPage = () => {
                     data-bs-target={`#cocktailModal${dish.id}`}
                     className="floatR"
                   >
-                    <img
+                    <Image
                       src={`/img/${idLocale}/icon-cocktail.svg`}
                       alt="Cocktail abbinati"
                     />
@@ -488,10 +490,9 @@ const MenuPage = () => {
         <br />
       </div>
       <BottomBar activeFiltersCount={activeFiltersCount} />
-      <script src="/js/bootstrap.bundle.js"></script>
-      <script src="/js/jquery-3.6.1.min.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/js/menu.js"></script>
+      <Script src="/js/bootstrap.bundle.js" strategy="lazyOnload" />
+      <Script src="/js/jquery-3.6.1.min.js" strategy="lazyOnload" />
+      <Script src="/js/main.js" strategy="lazyOnload" />
     </div>
   );
 };

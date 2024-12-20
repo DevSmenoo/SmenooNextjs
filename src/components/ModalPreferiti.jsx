@@ -1,6 +1,7 @@
 import React from "react";
 import { useFavorites } from "@/context/FavoritesContext";
 import { useLocale } from "@/context/LocaleContext";
+import Image from 'next/image';
 
 const ModalPreferiti = () => {
   const { favorites, removeFavorite } = useFavorites();
@@ -33,14 +34,14 @@ const ModalPreferiti = () => {
                 <div key={dish.id} className="container whiteBoxCourseModal">
                   <div className="d-flex">
                     {dish.tag && dish.tag.includes("new") && (
-                      <img className="d-inline newTag" src="/img/new.svg" />
+                      <Image className="d-inline newTag" src="/img/new.svg" />
                     )}
                     <div className="box">
                       <p className="d-inline">
                         <b>{dish.nome}</b>
                       </p>
                     </div>
-                    <img
+                    <Image
                       className="starPr floatR d-inline"
                       src="/img/Stella-attiva-preferiti.svg"
                       alt="Rimuovi dai preferiti"
@@ -58,7 +59,7 @@ const ModalPreferiti = () => {
                   {/* Allergeni */}
                   {dish.allergeni && (
                     <div>
-                      <img
+                      <Image
                         data-bs-toggle="modal"
                         data-bs-target={`#infoModal${dish.id}`}
                         className="floatR infoAll"
@@ -106,40 +107,40 @@ const ModalPreferiti = () => {
                     className="floatR"
                   >
                     {dish.tag && dish.tag.includes("senza glutine") && (
-                      <img
+                      <Image
                         src={`/img/${idLocale}/legenda-senza-glutine.svg`}
                         alt="Senza glutine"
                         className="floatR"
                       />
                     )}
                     {dish.tag && dish.tag.includes("vegano") && (
-                      <img src={`/img/${idLocale}/legenda-vegano.svg`} alt="Vegano" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-vegano.svg`} alt="Vegano" className="floatR"/>
                     )}
                     {dish.tag && dish.tag.includes("vegetariano") && (
-                      <img
+                      <Image
                         src={`/img/${idLocale}/legenda-vegetariano.svg`}
                         alt="Vegetariano"
                         className="floatR"
                       />
                     )}
                     {dish.tag && dish.tag.includes("biologico") && (
-                      <img src={`/img/${idLocale}/legenda-biologico.svg`} alt="Biologico" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-biologico.svg`} alt="Biologico" className="floatR"/>
                     )}
                     {dish.tag && dish.tag.includes("piccante") && (
-                      <img src={`/img/${idLocale}/legenda-piccante.svg`} alt="Piccante" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-piccante.svg`} alt="Piccante" className="floatR"/>
                     )}
                     {dish.tag && dish.tag.includes("senza lattosio") && (
-                      <img
+                      <Image
                         src={`/img/${idLocale}/legenda-senza-lattosio.svg`}
                         alt="Senza lattosio"
                         className="floatR"
                       />
                     )}
                     {dish.tag && dish.tag.includes("congelato") && (
-                      <img src={`/img/${idLocale}/legenda-congelato.svg`} alt="Congelato" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-congelato.svg`} alt="Congelato" className="floatR"/>
                     )}
                     {dish.tag && dish.tag.includes("abbattuto") && (
-                      <img src={`/img/${idLocale}/legenda-abbattuto.svg`} alt="Abbattuto" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-abbattuto.svg`} alt="Abbattuto" className="floatR"/>
                     )}
                   </div>
                 </div>
@@ -148,7 +149,7 @@ const ModalPreferiti = () => {
               <div className="emptyPref">
                 <p>
                   Aggiungi piatti dal menu cliccando sulla{" "}
-                  <img src="/img/Stella-preferiti.svg" alt="Stella preferiti" />{" "}
+                  <Image src="/img/Stella-preferiti.svg" alt="Stella preferiti" />{" "}
                   come promemoria per il tuo ordine!
                 </p>
               </div>

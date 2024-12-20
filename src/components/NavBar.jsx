@@ -1,5 +1,8 @@
 import React from 'react';
 import { useLocale } from '../context/LocaleContext';
+import Image from 'next/image';
+import Link from 'next/link';
+
 
 const NavBar = ({ localeInfo }) => {
   const { idLocale } = useLocale();
@@ -21,9 +24,9 @@ const NavBar = ({ localeInfo }) => {
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" onClick={() => document.body.classList.add('disable-scroll')}></span>
         </button>
-        <a href="/">
-          <img className="logoNav" src={`/img/${idLocale}/${localeInfo.logoHeader}`} alt="Logo" />
-        </a>
+        <Link href="/">
+          <Image className="logoNav" src={`/img/${idLocale}/${localeInfo.logoHeader}`} alt="Logo" />
+        </Link>
         <div className="form-group">
           <select className="form-select" name="lingua" id="lang" onChange={changeLanguage}>
             {/* Aggiungi le opzioni per le lingue */}
@@ -38,27 +41,27 @@ const NavBar = ({ localeInfo }) => {
         </button>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item d-flex">
-            <img src="/img/home.svg" alt="Home" />
-            <a className="nav-link active" aria-current="page" href="/">Home</a>
+            <Image src="/img/home.svg" alt="Home" />
+            <Link className="nav-link active" aria-current="page" href="/">Home</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('preferiti')}>
-            <img src="/img/star-sideB.svg" alt="Preferiti" />
-            <a className="nav-link">Preferiti</a>
+            <Image src="/img/star-sideB.svg" alt="Preferiti" />
+            <Link className="nav-link">Preferiti</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('filtri')}>
-            <img src="/img/filtri-sideB.svg" alt="Filtri" />
-            <a className="nav-link">Filtri</a>
+            <Image src="/img/filtri-sideB.svg" alt="Filtri" />
+            <Link className="nav-link">Filtri</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('legenda')}>
-            <img src="/img/4/legenda-sideB.svg" alt="Legenda" />
-            <a className="nav-link">Legenda</a>
+            <Image src="/img/4/legenda-sideB.svg" alt="Legenda" />
+            <Link className="nav-link">Legenda</Link>
           </li>
         </ul>
         <div className="text-center text-white powered">
           <p className="d-inline">Creato da</p>
-          <a href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-            <img className="d-inline poweredSmenoo" src="/img/Logo-smenoo.svg" alt="Smenoo" />
-          </a>
+          <Link href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
+            <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo.svg" alt="Smenoo" />
+          </Link>
         </div>
       </div>
     </nav>
