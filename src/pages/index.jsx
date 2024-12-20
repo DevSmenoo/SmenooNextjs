@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocale } from '../context/LocaleContext'; // Importa il contesto
 import MenuButton from '@/components/MenuButton';
 import { createGlobalStyle } from 'styled-components';
+import Script from 'next/script';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -161,17 +162,17 @@ const App = () => {
         ))}
         <div className="text-center moveSocialHome">
           {localeInfo.instagramLink && (
-            <a href={localeInfo.instagramLink} target="_blank" title={`Pagina Instagram di ${localeInfo.nomeLocale}`}>
+            <a href={localeInfo.instagramLink} target="_blank" title={`Pagina Instagram di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
               <img className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" />
             </a>
           )}
           {localeInfo.facebookLink && (
-            <a href={localeInfo.facebookLink} target="_blank" title={`Pagina Facebook di ${localeInfo.nomeLocale}`}>
+            <a href={localeInfo.facebookLink} target="_blank" title={`Pagina Facebook di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
               <img className="d-inline px-3" src="/img/fb.svg" alt="Facebook" />
             </a>
           )}
           {localeInfo.tiktokLink && (
-            <a href={localeInfo.tiktokLink} target="_blank" title={`Pagina TikTok di ${localeInfo.nomeLocale}`}>
+            <a href={localeInfo.tiktokLink} target="_blank" title={`Pagina TikTok di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
               <img className="d-inline px-3" src="/img/tt.svg" alt="TikTok" />
             </a>
           )}
@@ -185,18 +186,21 @@ const App = () => {
           </div>
         </div>
       </section>
-      <script src="/js/bootstrap.bundle.js"></script>
-      <script src="/js/jquery-3.6.1.min.js"></script>
-      <script src="/js/main.js"></script>
+
+      {/* Script ottimizzati */}
+      <Script src="/js/bootstrap.bundle.js" strategy="lazyOnload" />
+      <Script src="/js/jquery-3.6.1.min.js" strategy="lazyOnload" />
+      <Script src="/js/main.js" strategy="lazyOnload" />
+
       {((localeInfo.timer === true) || (localeInfo.scritta === true)) && (
-        <script>
+        <Script id="modal-timer" strategy="afterInteractive">
           {`
             window.addEventListener('DOMContentLoaded', () => {
                 const myModal = new bootstrap.Modal(document.getElementById('modalTimer'));
                 myModal.show();
             });
           `}
-        </script>
+        </Script>
       )}
     </div>
   );
