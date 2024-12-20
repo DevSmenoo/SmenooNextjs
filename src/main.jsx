@@ -1,5 +1,5 @@
 import React from 'react';
-import { LocaleProvider } from '../context/LocaleContext';
+import { LocaleProvider } from './context/LocaleContext';
 
 const App = () => (
   <LocaleProvider>
