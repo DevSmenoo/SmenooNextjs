@@ -5,7 +5,6 @@ import { createGlobalStyle } from 'styled-components';
 import Script from 'next/script';
 import Image from 'next/image';
 
-
 const GlobalStyle = createGlobalStyle`
   :root {
     --lightColor: #ffffff;
@@ -22,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .bg-menu-header {
-    background-image: url(/img/${props => props.idLocale}/${props => props.background});
+    background-image: ${props => `url(/img/${props.idLocale}/${props.background})`};
   }
 
   #modalTimer .modal-footer button {
@@ -68,10 +67,10 @@ const GlobalStyle = createGlobalStyle`
       font-display: swap;
     }
     .stickyNavScroll {
-      background-image: url(/img/${props => props.idLocale}/bg-ardesia-mobile-3.jpg);
+      background-image: ${props => `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
     }
     body {
-      background-image: url(/img/${props => props.idLocale}/bg-ardesia-mobile-3.jpg);
+      background-image: ${props => `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
       background-size: cover;
       background-repeat: no-repeat;
       min-height: 100vh;
@@ -154,7 +153,7 @@ const App = () => {
       <section className="bg-menu-header"></section>
       <section className="mainSecMenuHome">
         <div className="text-center logoBox">
-          {localeInfo.logo && <Image className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" />}
+          {localeInfo.logo && <Image className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" width={200} height={200} />}
           <h1>{localeInfo.nomeLocale}</h1>
           <p className="text-left px-4">{localeInfo.descrizione}</p>
         </div>
@@ -165,17 +164,17 @@ const App = () => {
         <div className="text-center moveSocialHome">
           {localeInfo.instagramLink && (
             <a href={localeInfo.instagramLink} target="_blank" title={`Pagina Instagram di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" />
+              <Image className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" width={30} height={30} />
             </a>
           )}
           {localeInfo.facebookLink && (
             <a href={localeInfo.facebookLink} target="_blank" title={`Pagina Facebook di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/fb.svg" alt="Facebook" />
+              <Image className="d-inline px-3" src="/img/fb.svg" alt="Facebook" width={30} height={30} />
             </a>
           )}
           {localeInfo.tiktokLink && (
             <a href={localeInfo.tiktokLink} target="_blank" title={`Pagina TikTok di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/tt.svg" alt="TikTok" />
+              <Image className="d-inline px-3" src="/img/tt.svg" alt="TikTok" width={30} height={30} />
             </a>
           )}
         </div>
@@ -183,7 +182,7 @@ const App = () => {
           <br /><br />
           <div className="text-center text-white">
             <a href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" />
+              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" width={100} height={100} />
             </a>
           </div>
         </div>
@@ -192,7 +191,6 @@ const App = () => {
       {/* Script ottimizzati */}
       <Script src="/js/bootstrap.bundle.js" strategy="lazyOnload" />
       <Script src="/js/jquery-3.6.1.min.js" strategy="lazyOnload" />
-      <Script src="/js/main.js" strategy="lazyOnload" />
 
       {((localeInfo.timer === true) || (localeInfo.scritta === true)) && (
         <Script id="modal-timer" strategy="afterInteractive">

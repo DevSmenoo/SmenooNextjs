@@ -17,7 +17,7 @@ const MenuButton = ({ menu }) => {
     <div className="container courseBox text-center" onClick={() => startSessionAndRedirect(menu.id)}>
       <button className="courseRow">
         <p className="d-inline">{menu.nome}</p>
-        <Image className="frecciaCourse d-inline" src="/img/Freccia-attiva-preferiti.svg" alt="Arrow" />
+        <Image className="frecciaCourse d-inline" src="/img/Freccia-attiva-preferiti.svg" alt="Arrow" width="50" height="50"/>
       </button>
     </div>
   );
