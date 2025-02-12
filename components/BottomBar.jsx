@@ -41,6 +41,7 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="sommelierIcon"
         name="image5"
         src="/img/sommelier-inactive.svg"
+        width={1} height={1} 
       />
       {activeFiltersCount > 0 && (
         <div className="counterBoxProvModalFiltri" id="filtrBoll">
@@ -56,8 +57,9 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="filtriIcon"
         name="image3"
         src="/img/filtri-inactive.svg"
+        width={1} height={1} 
       />
-      <Image className="dotActive" src="/img/blue-active.svg" />
+      <Image className="dotActive" src="/img/blue-active.svg" width={1} height={1} />
       <Image
         data-bs-toggle="modal"
         data-bs-target="#legendaModal"
@@ -65,6 +67,7 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="legendaIcon"
         name="image4"
         src="/img/legenda-inactive.svg"
+        width={1} height={1} 
       />
 
       {/* Modali */}

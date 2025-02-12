@@ -182,7 +182,7 @@ const App = () => {
           <br /><br />
           <div className="text-center text-white">
             <a href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" width={100} height={100} />
+              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" width={1} height={1} />
             </a>
           </div>
         </div>

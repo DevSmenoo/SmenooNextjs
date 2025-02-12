@@ -29,42 +29,42 @@ const ModalLegenda = () => (
         </div>
         <div className="modal-body modal-body-legenda">
           <div className="d-flex">
-            <Image src="/img/4/legenda-senza-glutine.svg" />
+            <Image src="/img/4/legenda-senza-glutine.svg" width={1} height={1} />
             <p>Senza glutine</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-vegano.svg" />
+            <Image src="/img/4/legenda-vegano.svg" width={1} height={1} />
             <p>Vegano</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-vegetariano.svg" />
+            <Image src="/img/4/legenda-vegetariano.svg" width={1} height={1} />
             <p>Vegetariano</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-biologico.svg" />
+            <Image src="/img/4/legenda-biologico.svg" width={1} height={1} />
             <p>Biologico</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-piccante.svg" />
+            <Image src="/img/4/legenda-piccante.svg" width={1} height={1} />
             <p>Piccante</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-senza-lattosio.svg" />
+            <Image src="/img/4/legenda-senza-lattosio.svg" width={1} height={1} />
             <p>Senza lattosio</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-congelato.svg" />
+            <Image src="/img/4/legenda-congelato.svg" width={1} height={1} />
             <p>Congelato</p>
           </div>
           <hr />
           <div className="d-flex">
-            <Image src="/img/4/legenda-abbattuto.svg" />
+            <Image src="/img/4/legenda-abbattuto.svg" width={1} height={1} />
             <p>Abbattuto</p>
           </div>
         </div>

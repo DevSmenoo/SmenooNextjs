@@ -46,6 +46,8 @@ const ModalPreferiti = () => {
                       src="/img/Stella-attiva-preferiti.svg"
                       alt="Rimuovi dai preferiti"
                       onClick={() => removeFavorite(dish.id)}
+                      width={1}
+                      height={1}
                     />
                   </div>
                   <p className="desc">{dish.ingredienti}</p>
@@ -65,6 +67,8 @@ const ModalPreferiti = () => {
                         className="floatR infoAll"
                         src="/img/infoAll.svg"
                         alt="Allergeni"
+                        width={1}
+                        height={1}
                       />
                       <div
                         className="modal fade modalInfo"
@@ -111,36 +115,42 @@ const ModalPreferiti = () => {
                         src={`/img/${idLocale}/legenda-senza-glutine.svg`}
                         alt="Senza glutine"
                         className="floatR"
+                        width={1}
+                        height={1}
                       />
                     )}
                     {dish.tag && dish.tag.includes("vegano") && (
-                      <Image src={`/img/${idLocale}/legenda-vegano.svg`} alt="Vegano" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-vegano.svg`} alt="Vegano" className="floatR" width={1} height={1}/>
                     )}
                     {dish.tag && dish.tag.includes("vegetariano") && (
                       <Image
                         src={`/img/${idLocale}/legenda-vegetariano.svg`}
                         alt="Vegetariano"
                         className="floatR"
+                        width={1}
+                        height={1}
                       />
                     )}
                     {dish.tag && dish.tag.includes("biologico") && (
-                      <Image src={`/img/${idLocale}/legenda-biologico.svg`} alt="Biologico" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-biologico.svg`} alt="Biologico" className="floatR" width={1} height={1}/>
                     )}
                     {dish.tag && dish.tag.includes("piccante") && (
-                      <Image src={`/img/${idLocale}/legenda-piccante.svg`} alt="Piccante" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-piccante.svg`} alt="Piccante" className="floatR" width={1} height={1}/>
                     )}
                     {dish.tag && dish.tag.includes("senza lattosio") && (
                       <Image
                         src={`/img/${idLocale}/legenda-senza-lattosio.svg`}
                         alt="Senza lattosio"
                         className="floatR"
+                        width={1}
+                        height={1}
                       />
                     )}
                     {dish.tag && dish.tag.includes("congelato") && (
-                      <Image src={`/img/${idLocale}/legenda-congelato.svg`} alt="Congelato" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-congelato.svg`} alt="Congelato" className="floatR" width={1} height={1}/>
                     )}
                     {dish.tag && dish.tag.includes("abbattuto") && (
-                      <Image src={`/img/${idLocale}/legenda-abbattuto.svg`} alt="Abbattuto" className="floatR"/>
+                      <Image src={`/img/${idLocale}/legenda-abbattuto.svg`} alt="Abbattuto" className="floatR" width={1} height={1}/>
                     )}
                   </div>
                 </div>
@@ -149,7 +159,7 @@ const ModalPreferiti = () => {
               <div className="emptyPref">
                 <p>
                   Aggiungi piatti dal menu cliccando sulla{" "}
-                  <Image src="/img/Stella-preferiti.svg" alt="Stella preferiti" />{" "}
+                  <Image src="/img/Stella-preferiti.svg" alt="Stella preferiti" width={1} height={1} />{" "}
                   come promemoria per il tuo ordine!
                 </p>
               </div>

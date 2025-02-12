@@ -271,6 +271,8 @@ const MenuPage = () => {
                         ? "Rimuovi dai preferiti"
                         : "Aggiungi ai preferiti"
                     }
+                    width={1}
+                    height={1}
                   />
                 </div>
               </div>
@@ -294,6 +296,8 @@ const MenuPage = () => {
                     className="floatR infoAll"
                     src={`/img/infoAll.svg`}
                     alt="Allergeni"
+                    width={1}
+                    height={1}
                   />
                   <div
                     className="modal fade modalInfo"
@@ -338,48 +342,64 @@ const MenuPage = () => {
                   <Image
                     src={`/img/${idLocale}/legenda-senza-glutine.svg`}
                     alt="senza glutine"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("vegano") && (
                   <Image
                     src={`/img/${idLocale}/legenda-vegano.svg`}
                     alt="vegano"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("vegetariano") && (
                   <Image
                     src={`/img/${idLocale}/legenda-vegetariano.svg`}
                     alt="vegetariano"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("biologico") && (
                   <Image
                     src={`/img/${idLocale}/legenda-biologico.svg`}
                     alt="biologico"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("piccante") && (
                   <Image
                     src={`/img/${idLocale}/legenda-piccante.svg`}
                     alt="piccante"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("senza lattosio") && (
                   <Image
                     src={`/img/${idLocale}/legenda-senza-lattosio.svg`}
                     alt="senza lattosio"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("congelato") && (
                   <Image
                     src={`/img/${idLocale}/legenda-congelato.svg`}
                     alt="congelato"
+                    width={1}
+                    height={1}
                   />
                 )}
                 {dish.tag && dish.tag.includes("abbattuto") && (
                   <Image
                     src={`/img/${idLocale}/legenda-abbattuto.svg`}
                     alt="abbattuto"
+                    width={1}
+                    height={1}
                   />
                 )}
               </div>
@@ -395,6 +415,8 @@ const MenuPage = () => {
                     <Image
                       src={`/img/${idLocale}/icon-vini.svg`}
                       alt="Vini abbinati"
+                      width={1}
+                      height={1}
                     />
                   </div>
                   <div
@@ -442,6 +464,8 @@ const MenuPage = () => {
                     <Image
                       src={`/img/${idLocale}/icon-cocktail.svg`}
                       alt="Cocktail abbinati"
+                      width={1}
+                      height={1}
                     />
                   </div>
                   <div

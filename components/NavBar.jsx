@@ -25,7 +25,7 @@ const NavBar = ({ localeInfo }) => {
           <span className="navbar-toggler-icon" onClick={() => document.body.classList.add('disable-scroll')}></span>
         </button>
         <Link href="/">
-          <Image className="logoNav" src={`/img/${idLocale}/${localeInfo.logoHeader}`} alt="Logo" />
+          <Image className="logoNav" src={`/img/${idLocale}/${localeInfo.logoHeader}`} alt="Logo" width={1} height={1} />
         </Link>
         <div className="form-group">
           <select className="form-select" name="lingua" id="lang" onChange={changeLanguage}>
@@ -41,26 +41,26 @@ const NavBar = ({ localeInfo }) => {
         </button>
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item d-flex">
-            <Image src="/img/home.svg" alt="Home" />
+            <Image src="/img/home.svg" alt="Home" width={1} height={1} />
             <Link className="nav-link active" aria-current="page" href="/">Home</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('preferiti')}>
-            <Image src="/img/star-sideB.svg" alt="Preferiti" />
-            <Link className="nav-link">Preferiti</Link>
+            <Image src="/img/star-sideB.svg" alt="Preferiti" width={1} height={1} />
+            <Link className="nav-link" href="javascript:void(0)">Preferiti</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('filtri')}>
-            <Image src="/img/filtri-sideB.svg" alt="Filtri" />
-            <Link className="nav-link">Filtri</Link>
+            <Image src="/img/filtri-sideB.svg" alt="Filtri" width={1} height={1} />
+            <Link className="nav-link" href="javascript:void(0)">Filtri</Link>
           </li>
           <li className="nav-item d-flex" onClick={() => openModalSidebar('legenda')}>
-            <Image src="/img/4/legenda-sideB.svg" alt="Legenda" />
-            <Link className="nav-link">Legenda</Link>
+            <Image src="/img/4/legenda-sideB.svg" alt="Legenda" width={1} height={1} />
+            <Link className="nav-link" href="javascript:void(0)">Legenda</Link>
           </li>
         </ul>
         <div className="text-center text-white powered">
           <p className="d-inline">Creato da</p>
           <Link href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-            <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo.svg" alt="Smenoo" />
+            <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo.svg" alt="Smenoo" width={1} height={1} />
           </Link>
         </div>
       </div>
