@@ -492,7 +492,6 @@ const MenuPage = () => {
       <BottomBar activeFiltersCount={activeFiltersCount} />
       <Script src="/js/bootstrap.bundle.js" strategy="lazyOnload" />
       <Script src="/js/jquery-3.6.1.min.js" strategy="lazyOnload" />
-      <Script src="/js/main.js" strategy="lazyOnload" />
     </div>
   );
 };
