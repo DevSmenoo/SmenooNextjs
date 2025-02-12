@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useLocale } from '../context/LocaleContext'; // Importa il contesto
-import MenuButton from '../components/MenuButton';
+import { useLocale } from '../../context/LocaleContext'; // Importa il contesto
+import MenuButton from '../../components/MenuButton';
 import { createGlobalStyle } from 'styled-components';
 import Script from 'next/script';
 import Image from 'next/image';

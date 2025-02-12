@@ -26,11 +26,27 @@ export default async function handler(req, res) {
   };
 
   try {
+    // Crea una connessione al database
+    const connection = await mysql.createConnection(dbConfig);
+    console.log('Connessione al database riuscita');
     const idCategoria = req.query.idCategoria ? parseInt(req.query.idCategoria) : null;
-    const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : null;
+    
+    // const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : null;
+    // Need to get the idLocale from the subdomain... and it's an API call!
+    const host = req.headers.host; // Get the host from the request
+    const subdomain = host.split('.')[0]; // Extract the subdomain
+    console.log('subdomain:', subdomain);
+    // Use the database to get the id from the row of the Locali table where the root matches the subdomain
+    const [idrows] = await connection.execute('SELECT id FROM locali WHERE root = ?', [subdomain]);
+    const idLocale = idrows[0] || null; // Set idLocale to 0 if not found... could be used to return a "Locale non trovato" message
+    console.log('idLocale:', idLocale);
+    
     const lang = req.query.lang || 'it';
 
     if (!idCategoria || !idLocale) {
+      //close connection before sending the error response
+      await connection.end();
+      console.log('Connessione chiusa');
       res.status(400).json({ error: 'Missing idCategoria or idLocale' });
       return;
     }
@@ -49,9 +65,7 @@ export default async function handler(req, res) {
       qFiltro += " AND tag LIKE '%piccante%'";
     }
 
-    // Crea una connessione al database
-    const connection = await mysql.createConnection(dbConfig);
-    console.log('Connessione al database riuscita');
+    
 
     // Costruisci la query SQL per recuperare i piatti della categoria
     const sql = `

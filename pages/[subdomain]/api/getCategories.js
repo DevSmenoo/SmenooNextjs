@@ -26,6 +26,10 @@ export default async function handler(req, res) {
   };
 
   try {
+    // Crea una connessione al database
+    const connection = await mysql.createConnection(dbConfig);
+    console.log('Connessione al database riuscita');
+
     // Recupera i filtri dai parametri della query
     let qFiltro = '';
     if (req.query.f1) {
@@ -43,16 +47,25 @@ export default async function handler(req, res) {
 
     // Recupera idMenu e idLocale dai parametri della query o dai cookie
     const idMenu = req.query.idMenu || req.cookies.menuId;
-    const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : 0;
+    // const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : 0;
+    // Need to get the idLocale from the subdomain... and it's an API call!
+    const host = req.headers.host; // Get the host from the request
+    const subdomain = host.split('.')[0]; // Extract the subdomain
+    console.log('subdomain:', subdomain);
+    // Use the database to get the id from the row of the Locali table where the root matches the subdomain
+    const [idrows] = await connection.execute('SELECT id FROM locali WHERE root = ?', [subdomain]);
+    const idLocale = idrows[0] || 0; // Set idLocale to 0 if not found... could be used to return a "Locale non trovato" message
+    console.log('idLocale:', idLocale);
 
     if (!idLocale || !idMenu) {
+      // close the connection before sending the response
+      await connection.end();
+      console.log('Connessione chiusa');
       res.status(400).json({ error: 'idLocale or idMenu is missing' });
       return;
     }
 
-    // Crea una connessione al database
-    const connection = await mysql.createConnection(dbConfig);
-    console.log('Connessione al database riuscita');
+    
 
     // Esegui la query per recuperare le categorie
     const sql = `

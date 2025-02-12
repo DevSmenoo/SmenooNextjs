@@ -16,16 +16,24 @@ export default async function handler(req, res) {
   };
 
   try {
-    // Recupera l'idLocale dai parametri della query
-    const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : 1;
-    console.log('idLocale:', idLocale);
-
+    // Recupera l'idLocale dai parametri della query, default a 1 se non specificato
+    // const idLocale = req.query.idLocale ? parseInt(req.query.idLocale) : 1;
+    // Need to get the idLocale from the subdomain... and it's an API call!
     // Crea una connessione al database
     const connection = await mysql.createConnection(dbConfig);
     console.log('Connessione al database riuscita');
 
+    const host = req.headers.host; // Get the host from the request
+    const subdomain = host.split('.')[0]; // Extract the subdomain
+
+    console.log('subdomain:', subdomain);
+    // Use the database to get the id from the row of the Locali table where the root matches the subdomain
+    const [rows] = await connection.execute('SELECT * FROM locali WHERE root = ?', [subdomain]);
+    // const idLocale = idrows[0].id;
+    // console.log('idLocale:', idLocale);
+
     // Esegui la query per recuperare le informazioni del locale
-    const [rows] = await connection.execute('SELECT * FROM locali WHERE id = ?', [idLocale]);
+    // const [rows] = await connection.execute('SELECT * FROM locali WHERE id = ?', [idLocale]);
     console.log('Query eseguita, righe restituite:', rows);
 
     // Chiudi la connessione
