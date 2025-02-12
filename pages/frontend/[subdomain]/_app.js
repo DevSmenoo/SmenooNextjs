@@ -1,5 +1,5 @@
-import { LocaleProvider } from "../../context/LocaleContext";
-import { FavoritesProvider } from "../../context/FavoritesContext";
+import { LocaleProvider } from "../../../context/LocaleContext";
+import { FavoritesProvider } from "../../../context/FavoritesContext";
 import "../styles/globals.css"; // Importa gli stili globali
 
 function MyApp({ Component, pageProps }) {

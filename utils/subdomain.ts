@@ -10,8 +10,18 @@ export const getValidSubdomain = async (host?: string | null) => {
     }
 
     if (host && host.includes('.')) {
+        // Check if the host has a subdomain. to be a valid subdomain, host.split('.') should return an array of 
+        // lenghth === 3 or 4 (.co.uk)
+        if (host.split('.').length <= 2) {
+            return subdomain;
+        }
         const candidate = host.split('.')[0];
         if (candidate && !candidate.includes('localhost')) {
+            // check if the candidate is a reserved subdomain
+            const reservedSubdomains = ['www', 'admin', 'indovino'];
+            if (reservedSubdomains.includes(candidate)) {
+                return candidate;
+            }
             // Create a database connection
             const dbConfig = {
                 host: process.env.DB_HOST,
