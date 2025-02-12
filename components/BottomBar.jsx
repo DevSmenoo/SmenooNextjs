@@ -1,5 +1,5 @@
 import React from "react";
-import { useFavorites } from "@/context/FavoritesContext";
+import { useFavorites } from "../context/FavoritesContext";
 import ModalPreferiti from "./ModalPreferiti";
 import ModalFiltri from "./ModalFiltri";
 import ModalMenuSwitch from "./ModalMenuSwitch";

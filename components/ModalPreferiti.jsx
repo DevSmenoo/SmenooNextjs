@@ -1,6 +1,6 @@
 import React from "react";
-import { useFavorites } from "@/context/FavoritesContext";
-import { useLocale } from "@/context/LocaleContext";
+import { useFavorites } from "../context/FavoritesContext";
+import { useLocale } from "../context/LocaleContext";
 import Image from 'next/image';
 
 const ModalPreferiti = () => {
