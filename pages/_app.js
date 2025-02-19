@@ -1,17 +1,8 @@
-import { LocaleProvider } from "../context/LocaleContext";
-import { FavoritesProvider } from "../context/FavoritesContext";
-import "../styles/globals.css"; // Importa gli stili globali
+// pages/_app.js
+import '../styles/globals.css'; // Import global styles if you have any
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <LocaleProvider>
-      <FavoritesProvider>
-          <Component {...pageProps} />;
-      </FavoritesProvider>
-    </LocaleProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
-
-/* Test */

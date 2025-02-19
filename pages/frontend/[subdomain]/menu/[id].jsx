@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Cookies from "js-cookie";
 import axios from "axios";
-import { useLocale } from "../../context/LocaleContext";
-import { useFavorites } from "../../context/FavoritesContext";
-import NavBar from "../../components/NavBar";
-import BottomBar from "../../components/BottomBar";
-import ModalFiltri from "../../components/ModalFiltri";
+import { useLocale } from "../../../../context/LocaleContext";
+import { useFavorites } from "../../../../context/FavoritesContext";
+import NavBar from "../../../../components/NavBar";
+import BottomBar from "../../../../components/BottomBar";
+import ModalFiltri from "../../../../components/ModalFiltri";
 import Image from 'next/image';
 import Script from 'next/script';
 
