@@ -1,5 +1,5 @@
 // utils/subdomain.ts
-const prisma = require('prisma').default; // ✅ Import the default export
+const prisma = require('./prisma').default; // ✅ Import the default export
 
 export const getValidSubdomain = async (host?: string | null) => {
     let subdomain: string | null = null;
