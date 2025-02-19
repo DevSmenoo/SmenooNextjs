@@ -1,12 +1,12 @@
 import { LocaleProvider } from "../../../context/LocaleContext";
 import { FavoritesProvider } from "../../../context/FavoritesContext";
-import "../styles/globals.css"; // Importa gli stili globali
+import "../../../styles/globals.css"; // Importa gli stili globali
 
 function MyApp({ Component, pageProps }) {
   return (
     <LocaleProvider>
       <FavoritesProvider>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
       </FavoritesProvider>
     </LocaleProvider>
   );
