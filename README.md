@@ -49,3 +49,79 @@ Each reserved subdomain has a folder inside `pages` where it is located and has 
 In this way, resources like cache and cookies are isolated by subdomain, ensuring that each subdomain has its own cache and cookies.
 
 Static Files (usually images and other assets that you put inside the `public` folder) that are stored under _next are not rewritten and are served directly by Next.js.
+
+
+## Theming
+We can create different themes under `styles/themes` and load them dynamically based on the subdomain.
+example with protocode (you'll have to correct it for the real project):
+
+```javascript
+// pages/frontend/[subdomain]/api/getTheme.js
+import mysql from 'mysql2/promise';
+
+export default async function handler(req, res) {
+  const { subdomain } = req.query; // Get subdomain from query parameters
+
+  const dbConfig = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT,
+  };
+
+  const connection = await mysql.createConnection(dbConfig);
+  try {
+    const [rows] = await connection.execute('SELECT theme FROM locali WHERE root = ?', [subdomain]);
+    if (rows.length > 0) {
+      res.status(200).json({ theme: rows[0].theme });
+    } else {
+      res.status(404).json({ message: 'Subdomain not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Database error', error });
+  } finally {
+    await connection.end();
+  }
+}
+```
+
+```javascript
+// pages/frontend/[subdomain]/_app.js
+import { useEffect, useState } from 'react';
+import defaultTheme from '../../../styles/themes/defaultTheme';
+
+function SubdomainApp({ Component, pageProps }) {
+  const [theme, setTheme] = useState(defaultTheme);
+
+  useEffect(() => {
+    const host = window.location.hostname; // Get the current hostname
+    const subdomain = host.split('.')[0]; // Extract the subdomain
+
+    // Fetch the theme preference from the API
+    const fetchTheme = async () => {
+      const response = await fetch(`/frontend/${subdomain}/api/getTheme`);
+      if (response.ok) {
+        const data = await response.json();
+        // Load the theme based on the preference
+        const themeName = data.theme; // Assume this returns the theme name
+        import(`../../../styles/themes/${themeName}`).then((themeModule) => {
+          setTheme(themeModule.default);
+        });
+      } else {
+        setTheme(defaultTheme); // Fallback to default theme
+      }
+    };
+
+    fetchTheme();
+  }, []);
+
+  return (
+    <div style={{ background: theme.background, color: theme.color }}>
+      <Component {...pageProps} />
+    </div>
+  );
+}
+
+export default SubdomainApp;
+```
