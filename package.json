@@ -20,8 +20,11 @@
   },
   "devDependencies": {
     "@types/next": "^8.0.7",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "eslint-config-next": "15.0.3",
+    "typescript": "^5.7.3"
   }
 }

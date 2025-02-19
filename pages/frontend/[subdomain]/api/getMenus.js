@@ -36,6 +36,12 @@ export default async function handler(req, res) {
     const host = req.headers.host; // Get the host from the request
     const subdomain = host.split('.')[0]; // Extract the subdomain
     console.log('subdomain:', subdomain);
+    // Assuming this is within your handler function
+    const query = 'SELECT id FROM locali WHERE root = ?';
+    const finalQuery = connection.format(query, [subdomain]); // Format the query with the subdomain
+
+    console.log('Executing query:', finalQuery); // Print the final query to the console
+
     // Use the database to get the id from the row of the Locali table where the root matches the subdomain
     const [idrows] = await connection.execute('SELECT id FROM locali WHERE root = ?', [subdomain]);
     const idLocale = idrows[0] || 0; // Set idLocale to 0 if not found... could be used to return a "Locale non trovato" message
