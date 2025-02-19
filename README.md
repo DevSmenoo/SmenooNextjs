@@ -37,6 +37,20 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Remember: use NODE 20!
 
+## Database Connection
+This project needed to change the database connection to use Prisma ORM, because Mysql2 uses some APIs that are not supported by [Vercel Serverless Edge Functions](https://vercel.com/docs/functions/edge-middleware/edge-runtime).
+Now the database connection is handled by Prisma ORM.
+The actual schema has been recovered by using the `npx prisma db pull` command to let it Introspect the database.
+In this way, the schema is kept up-to-date and the database is always in sync with the model.
+
+Once the schema is set up, we can generate the Prisma client using the `npx prisma generate` command.
+
+If we want to modify the schema, we can do so inside the file `schema.prisma` and use the `npx prisma db push` command to push the changes to the database (this will also regenerate the Prisma client).
+
+We can also use `npx prisma studio` to interact with the database directly: it's a GUI tool like phpMyAdmin.
+
+Prisma, other than the ORM manager, can also supply paid cloud databases and a paid [Pulse](https://www.prisma.io/pulse) service to react to realtime changes in the database).
+
 ## URL Rewriting for Subdomains
 In this project, we use URL rewriting to handle requests for subdomains. This is necessary because Next.js does not support subdomains by default, so we need to use a custom middleware to handle the requests and redirect them to the appropriate subdomain.
 

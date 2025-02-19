@@ -1,5 +1,5 @@
 // utils/subdomain.ts
-import mysql from 'mysql2/promise'; // Import MySQL library
+const prisma = require('prisma').default; // ✅ Import the default export
 
 export const getValidSubdomain = async (host?: string | null) => {
     let subdomain: string | null = null;
@@ -22,29 +22,13 @@ export const getValidSubdomain = async (host?: string | null) => {
             if (reservedSubdomains.includes(candidate)) {
                 return candidate;
             }
-            // Create a database connection
-            const dbConfig = {
-                host: process.env.DB_HOST,
-                user: process.env.DB_USER,
-                password: process.env.DB_PASSWORD,
-                database: process.env.DB_NAME,
-                port: Number(process.env.DB_PORT), // Ensure this is a number
-                ssl: {
-                    rejectUnauthorized: false
-                }
-            };
-
-            const connection = await mysql.createConnection(dbConfig);
-
             // Check if the candidate exists in the Locali table
-            const [rows] = await connection.execute('SELECT COUNT(*) as count FROM locali WHERE root = ?', [candidate]);
-            const count = rows[0].count;
-
-            if (count > 0) {
+            const result = await prisma.locali.findUnique({
+                where: { root: candidate },
+            });
+            if (result) {
                 subdomain = candidate; // Valid candidate found in the database
             }
-
-            await connection.end(); // Close the database connection
         }
     }
 

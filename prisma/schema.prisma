@@ -1,0 +1,191 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model allergeni {
+  id           Int     @id @default(autoincrement())
+  numAllergeno Int?
+  descrizione  String? @default("null") @db.VarChar(5000)
+}
+
+model assCatMenu {
+  id              Int      @id @default(autoincrement())
+  idCategoria     Int?
+  idMenu          Int?
+  dataInserimento DateTime @default(now()) @db.DateTime(0)
+}
+
+model assPortMenu {
+  id              Int      @id @default(autoincrement())
+  idPortata       Int?
+  idMenu          Int?
+  dataInserimento DateTime @default(now()) @db.DateTime(0)
+}
+
+model categoria {
+  id              Int      @id @default(autoincrement())
+  nome            String?  @db.VarChar(100)
+  descrizione     String?  @db.VarChar(1000)
+  icona           String?  @db.VarChar(100)
+  ordineStampa    Int?
+  flagVisibile    Int?     @default(0)
+  idLocale        Int?
+  dataInserimento DateTime @default(now()) @db.DateTime(0)
+}
+
+model lingueTrad {
+  id        Int     @id @default(autoincrement())
+  nome      String? @db.VarChar(50)
+  sigla     String? @db.VarChar(5)
+  img       String? @db.VarChar(50)
+  siglaHTML String? @db.VarChar(20)
+}
+
+model locali {
+  id            Int     @id @default(autoincrement())
+  nome          String? @db.VarChar(200)
+  root          String? @db.VarChar(100)
+  descrizione   String? @db.VarChar(150)
+  flagActive    Int     @default(0)
+  logo          String? @db.VarChar(200)
+  logoHeader    String  @db.VarChar(200)
+  background    String? @db.VarChar(200)
+  colorMain1    String? @db.VarChar(10)
+  colorMain2    String? @db.VarChar(10)
+  instagramLink String? @db.VarChar(100)
+  facebookLink  String? @db.VarChar(100)
+  tiktokLink    String? @db.VarChar(100)
+  idUser        Int?
+}
+
+model menu {
+  id                 Int       @id @default(autoincrement())
+  idLocale           Int?
+  nome               String?   @db.VarChar(300)
+  descrizione        String?   @db.VarChar(500)
+  flagActive         Int       @default(0)
+  dataCreazione      DateTime  @default(now()) @db.DateTime(0)
+  dataUltimaModifica DateTime? @db.DateTime(0)
+}
+
+model payment_methods {
+  id          Int    @id @default(autoincrement())
+  method_name String @db.VarChar(50)
+}
+
+model portata {
+  id                Int     @id @default(autoincrement())
+  nome              String? @db.VarChar(200)
+  idCategoria       Int?
+  subCategoria      String? @db.VarChar(100)
+  ingredienti       String? @db.VarChar(1000)
+  p1                String? @db.VarChar(20)
+  p2                String? @db.VarChar(20)
+  p3                String? @db.VarChar(20)
+  tipoPrezzo        String? @db.VarChar(10)
+  flagVisibile      Int     @default(0)
+  idLocale          Int?
+  tag               String? @db.VarChar(100)
+  allergeni         String? @db.VarChar(2000)
+  viniAbbinati      String? @db.VarChar(1000)
+  cocktailAbbinati  String? @db.VarChar(1000)
+  flagLunedi        Boolean @default(false)
+  flagMartedi       Boolean @default(false)
+  flagMercoledi     Boolean @default(false)
+  flagGiovedi       Boolean @default(false)
+  flagVenerdi       Boolean @default(false)
+  flagSabato        Boolean @default(false)
+  flagDomenica      Boolean @default(false)
+  dalleOre          String? @db.VarChar(20)
+  alleOre           String? @db.VarChar(20)
+  flagTuttoIlGiorno String? @db.VarChar(5)
+  ordineStampa      Int?
+}
+
+model preferiti {
+  id              Int      @id @default(autoincrement())
+  idPortata       Int?
+  session         String?  @db.VarChar(20)
+  dataInserimento DateTime @default(now()) @db.DateTime(0)
+}
+
+model subscriptions {
+  id                     Int                             @id @default(autoincrement())
+  user_id                Int
+  subscription_type      subscriptions_subscription_type
+  start_date             DateTime                        @db.Date
+  end_date               DateTime                        @db.Date
+  payment_method_id      Int?
+  payment_status         subscriptions_payment_status    @default(pending)
+  billing_cycle          subscriptions_billing_cycle     @default(monthly)
+  stripe_subscription_id String?                         @db.VarChar(255)
+  dataInserimento        DateTime                        @default(now()) @db.DateTime(0)
+}
+
+model textTrad {
+  id        Int     @id @default(autoincrement())
+  idLang    Int?
+  idPortata Int?
+  nomeTrad  String? @db.VarChar(200)
+  descTrad  String? @db.VarChar(1000)
+}
+
+model timer {
+  id          Int       @id @default(autoincrement())
+  dataStart   DateTime? @db.DateTime(0)
+  dataEnd     DateTime? @db.DateTime(0)
+  minuti      Int?
+  flagActive  Int?      @default(0)
+  flagScritta Int       @default(0)
+  idLocale    Int?
+}
+
+model user {
+  id                      Int       @id @default(autoincrement())
+  name                    String    @db.VarChar(50)
+  email                   String    @db.VarChar(50)
+  pwd                     String?   @db.VarChar(100)
+  data_inserimento        DateTime  @default(now()) @db.Timestamp(0)
+  flagActive              Boolean   @default(false)
+  idLocale                Int?
+  lastActivity            DateTime? @db.DateTime(0)
+  current_subscription_id Int?
+  billing_name            String?   @db.VarChar(100)
+  billing_address         String?   @db.VarChar(255)
+  billing_city            String?   @db.VarChar(50)
+  billing_state           String?   @db.VarChar(50)
+  billing_zip             String?   @db.VarChar(20)
+  billing_country         String?   @db.VarChar(50)
+  stripe_customer_id      String?   @db.VarChar(255)
+}
+
+model userCrm {
+  id               Int      @id @default(autoincrement())
+  name             String   @db.VarChar(50)
+  email            String   @db.VarChar(50)
+  pwd              String   @db.VarChar(100)
+  tipo_user        String?  @db.VarChar(10)
+  data_inserimento DateTime @default(now()) @db.Timestamp(0)
+}
+
+enum subscriptions_subscription_type {
+  starter
+  pro
+  enterprise
+}
+
+enum subscriptions_payment_status {
+  pending
+  completed
+  failed
+}
+
+enum subscriptions_billing_cycle {
+  monthly
+  annual
+}
