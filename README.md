@@ -49,7 +49,7 @@ If we want to modify the schema, we can do so inside the file `schema.prisma` an
 
 We can also use `npx prisma studio` to interact with the database directly: it's a GUI tool like phpMyAdmin.
 
-Prisma, other than the ORM manager, can also supply paid cloud databases and a paid [Pulse](https://www.prisma.io/pulse) service to react to realtime changes in the database).
+Prisma, other than the ORM manager, can also supply paid cloud databases and a paid [Pulse](https://www.prisma.io/pulse) service to react to realtime changes in the database.
 
 ## URL Rewriting for Subdomains
 In this project, we use URL rewriting to handle requests for subdomains. This is necessary because Next.js does not support subdomains by default, so we need to use a custom middleware to handle the requests and redirect them to the appropriate subdomain.
