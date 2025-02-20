@@ -34,7 +34,7 @@ export default async function handler(req, res) {
     }
 
     // Esegui la query per recuperare i menu attivi per il locale
-    const [rows] = await prisma.menu.findMany({
+    const rows = await prisma.menu.findMany({
       where: {
         idLocale: idLocale,
         flagActive: 1,
