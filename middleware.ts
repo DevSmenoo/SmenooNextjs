@@ -18,32 +18,26 @@ export async function middleware(req: NextRequest) {
   if (subdomain) {
     // we should reserve some subdomains for future use
     if (subdomain === 'www'){
-        // Main domain, no subdomain
+        // for now Main domain, no www subfolder (but maybe in the future we want to have a subfolder www)
         console.log(`>>> No subdomain for ${host}, requesting as is: ${url.pathname}`);
-        url.pathname = `/${url.pathname}`;
+        // url.pathname = `${url.pathname}`; // No need to modify url.pathname, just return it as-is.
     } 
-    else if (subdomain === 'indovino'){
+    else if (subdomain === 'indovino' || subdomain === 'admin'){
         // Subdomain available, rewriting
         console.log(`>>> Rewriting: ${url.pathname} to /${subdomain}${url.pathname}`);
-        url.pathname = `/${subdomain}${url.pathname}`;
-    }
-    else if (subdomain === 'admin'){
-        // Subdomain available, rewriting
-        console.log(`>>> Rewriting: ${url.pathname} to /${subdomain}${url.pathname}`);
-        url.pathname = `/${subdomain}${url.pathname}`;
-  
+        url.pathname = `/${subdomain}${url.pathname}`.replace(/^\/?/, "/"); // Ensures only one leading /
     }
     else {
         // Dynamic Subdomain available, rewriting
         console.log(`>>> Rewriting: ${url.pathname} to /frontend/${subdomain}${url.pathname}`);
-        url.pathname = `/frontend/${subdomain}${url.pathname}`;
+        url.pathname = `/frontend/${subdomain}${url.pathname}`.replace(/^\/?/, "/");
   
     }
   }
   else {
     // no subdomain, requesting the main domain
     console.log(`>>> No subdomain for ${host}, requesting as is: ${url.pathname}`);
-    url.pathname = `/${url.pathname}`;
+    // url.pathname = `${url.pathname}`; // No need to modify url.pathname, just return it as-is.
   }
 
   return NextResponse.rewrite(url);

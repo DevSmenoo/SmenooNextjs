@@ -1,3 +1,4 @@
+// pages/frontend/[subdomain]/index.jsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { useLocale } from '../../../context/LocaleContext'; // Importa il contesto
 import MenuButton from '../../../components/MenuButton';

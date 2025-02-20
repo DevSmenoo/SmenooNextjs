@@ -54,15 +54,23 @@ Prisma, other than the ORM manager, can also supply paid cloud databases and a p
 ## URL Rewriting for Subdomains
 In this project, we use URL rewriting to handle requests for subdomains. This is necessary because Next.js does not support subdomains by default, so we need to use a custom middleware to handle the requests and redirect them to the appropriate subdomain.
 
-The middleware is located in `middleware.js` and is used to rewrite the request URL to the appropriate subdomain.
-It uses the `getValidSubdomain` function from `utils/subdomain.js` to validate the subdomain and return the appropriate subdomain by rewriting them to the appropriate folder under `/frontend`. If the subdomain is not valid, it returns null, and the request is not rewritten (it goes to the main domain, which is responsible for handling the request and rendering a 404 page if needed).
+The middleware is located in `middleware.ts` and is used to rewrite the request URL to the appropriate subdomain.
+It uses the `getValidSubdomain` function from `utils/subdomain.ts` to validate the subdomain and return the appropriate subdomain by rewriting INTERNALLY them to the appropriate folder under `/frontend`. If the subdomain is not valid, it returns null, and the request is not rewritten (it goes to the main domain, which is responsible for handling the request and rendering a 404 page if needed).
 
-There are some subdomains that are reserved and are listed inside `utils/subdomain.js` and used by the middleware to rewrite the request using the right folder structure.
-Each reserved subdomain has a folder inside `pages` where it is located and has its `api` folder, _app.js and _app.tsx files, which are used to define the layout and behavior for the subdomain.
+There are some subdomains that are reserved and are listed inside `utils/subdomain.ts` and used by the middleware to rewrite the request using the right folder structure.
+Each reserved subdomain has a folder inside `pages` where it is located and has its `api` folder.
 
 In this way, resources like cache and cookies are isolated by subdomain, ensuring that each subdomain has its own cache and cookies.
 
 Static Files (usually images and other assets that you put inside the `public` folder) that are stored under _next are not rewritten and are served directly by Next.js.
+
+In _app.js we used the next router to read the subfolder that has been rewritten and load the correct layout. This is possible because the router in the middleware is used to rewrite the request only internally, while the user sees the unmodified URL.
+
+| **User URL**                        | **Middleware Rewrite**     | **`router.pathname`**      | **Full Internal Path**                      |
+|--------------------------------------|---------------------------|----------------------------|---------------------------------------------|
+| `https://indovino.example.com/shop`  | `/indovino/shop`          | `/indovino/shop`           | `https://indovino.example.com/indovino/shop` |
+| `https://admin.example.com/dashboard` | `/admin/dashboard`       | `/admin/dashboard`         | `https://admin.example.com/admin/dashboard` |
+| `https://random.example.com/blog`   | `/frontend/random/blog`   | `/frontend/random/blog`    | `https://random.example.com/frontend/random/blog` |
 
 
 ## Theming
