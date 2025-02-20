@@ -1,3 +1,4 @@
+// utils/prisma.ts
 import { PrismaClient } from '@prisma/client';
 
 // Singleton pattern to create a single instance of PrismaClient and avoid multiple connections to the database

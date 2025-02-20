@@ -1,5 +1,5 @@
 // api/getDishesByCategory.js
-const prisma = require('../../../../utils/prisma').default; // ✅ Import the default export
+const prisma = require('../../utils/prisma').default; // ✅ Import the default export
 
 export default async function handler(req, res) {
   // Configurazione CORS

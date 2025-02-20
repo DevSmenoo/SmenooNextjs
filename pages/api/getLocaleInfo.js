@@ -1,4 +1,5 @@
-const prisma = require('../../../../utils/prisma').default; // ✅ Import the default export
+// pages/frontend/[subdomain]/api/getLocaleInfo.js
+const prisma = require('../../utils/prisma').default; // ✅ Import the default export
 
 export default async function handler(req, res) {
   console.log('Richiesta ricevuta per getLocaleInfo');
