@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     console.log('subdomain:', subdomain);
     // Use the database to get the id from the row of the Locali table where the root matches the subdomain
-    const row = await prisma.locali.findUnique({
+    const row = await prisma.locali.findFirst({
         where: { root: subdomain },
     });
 

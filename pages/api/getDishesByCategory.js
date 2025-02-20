@@ -23,10 +23,10 @@ export default async function handler(req, res) {
     const subdomain = host.split('.')[0]; // Extract the subdomain
     console.log('subdomain:', subdomain);
     // Use the database to get the id from the row of the Locali table where the root matches the subdomain
-    const idrows = await prisma.locali.findUnique({
+    const idrow = await prisma.locali.findFirst({
       where: { root: subdomain },
     })
-    const idLocale = idrows?.id || 0; // Set idLocale to 0 if not found... could be used to return a "Locale non trovato" message
+    const idLocale = idrow?.id || 0; // Set idLocale to 0 if not found... could be used to return a "Locale non trovato" message
     console.log('idLocale:', idLocale);
     
     const lang = req.query.lang || 'it';
