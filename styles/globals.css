@@ -64,6 +64,7 @@ p,h1 {margin-bottom: 0!important;}
 .logoBox h1{font-weight: bold;font-size: 3vw;}
 .floatL{float: left;}
 .starPr{float: right; padding: 0 !important;}
+.stella{width: 25px !important; height: 25px !important; padding: 0 !important;}
 .whiteBoxCourse{background-color: white;padding: 1.5vw 2.5vw 1.5vw 2.5vw;border-radius: 1vw;margin-top: 2vh;}
 p.desc {margin-bottom: 2vh;line-height: 3vh;margin-top: 2vh;}
 .price b {font-weight: 500;}
@@ -83,7 +84,7 @@ ul.navbar-nav.me-auto.mb-2.mb-lg-0 {min-height: 70vh;padding-top: 10vh;}
 input#cerca-modal-ph {background-color: #D9D9D9;}
 img.dotActive {position: absolute;bottom: -1.4vh;}
 .counterBoxProvModal {position: absolute;margin-left: 0;background-color: #34C542;border-radius: 50%;height: auto;width: 6vw;margin-top: 0px;text-align: center;
-    left: 13%;top: 15%;}
+    left: 18%;top: 15%;}
 .counterBoxProvModalFiltri {position: absolute;margin-left: 0;background-color: #EE3912;border-radius: 50%;height: auto;width: 6vw;margin-top: 0px;text-align: center; color: white;
     left: 52%;top: 15%;}
 .navbar-collapse.show {left: 0;transition: left 300ms ease-in-out;background-color: black;}
@@ -243,8 +244,19 @@ div.scrollmenu button {
     width: 25px;
     height: auto;
 }
+
+.container.whiteBoxCourseModal img {
+    width: 35px;
+    height: auto;
+}
+
 .bottomBarMenu img {
     width: 75px;
+    height: auto;
+}
+
+.nav-item img {
+    width: 25px;
     height: auto;
 }
 
@@ -313,7 +325,7 @@ and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation 
     .menuActiveModal img.frecciaCourse {transform: rotate(-90deg);margin-top: -20px;}
     .menuModal:focus-visible,.menuModal:active,.menuModal:focus,.menuModal:checked,.menuModal:hover{padding: 2vw;border: 1px solid #8A4B53;border-radius: 10vw;color: #8A4B53;padding-left: 3vw;padding-left: 4vw;background-color: white;
         background-image: url(/img/Freccia-colorata-menu.svg);background-repeat: no-repeat;background-position-x: 96%;background-position-y: 61%;background-size: 6%;}
-    .mainWhiteBoxCourse{margin-top: -3vh;padding: 2vw 4vw 2vw 4vw;} 
+    .mainWhiteBoxCourse{padding: 2vw 4vw 2vw 4vw;} 
     .container.whiteBoxCourse b {font-size: 5vw;color: #353535;}
     .form-control:focus {border-color: transparent;}
     .form-control:focus {box-shadow: 0 0 0 0.05rem lightgreen;}
@@ -329,7 +341,7 @@ and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation 
     .navbar-collapse.collapsing{left: -90%;} /*smooth animation side menu*/
 /*    .modal-body img{margin-right: 2vw;}*/
     .floatR img{margin-left: 2vw;}
-    .infoAll{padding-left: 2vw;}
+    .infoAll{margin-left: 2vw; height: 25px !important;}
     .form-control{line-height: 0;}
     .modal-header-cerca{padding: 0.5vh;}
     .modal-body-cerca{padding: 2vh;}

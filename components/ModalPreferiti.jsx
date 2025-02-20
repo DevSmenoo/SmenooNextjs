@@ -159,7 +159,7 @@ const ModalPreferiti = () => {
               <div className="emptyPref">
                 <p>
                   Aggiungi piatti dal menu cliccando sulla{" "}
-                  <Image src="/img/Stella-preferiti.svg" alt="Stella preferiti" width={1} height={1} />{" "}
+                  <Image className="stella" src="/img/Stella-preferiti.svg" alt="Stella preferiti" width={1} height={1} />{" "}
                   come promemoria per il tuo ordine!
                 </p>
               </div>

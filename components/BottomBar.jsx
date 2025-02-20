@@ -59,7 +59,7 @@ const BottomBar = ({ activeFiltersCount }) => {
         src="/img/filtri-inactive.svg"
         width={1} height={1} 
       />
-      <Image className="dotActive" src="/img/blue-active.svg" width={1} height={1} />
+      {/* <Image className="dotActive" src="/img/blue-active.svg" width={1} height={1} /> */}
       <Image
         data-bs-toggle="modal"
         data-bs-target="#legendaModal"
