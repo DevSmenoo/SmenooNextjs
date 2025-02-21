@@ -34,7 +34,7 @@ const ModalPreferiti = () => {
                 <div key={dish.id} className="container whiteBoxCourseModal">
                   <div className="d-flex">
                     {dish.tag && dish.tag.includes("new") && (
-                      <Image className="d-inline newTag" src="/img/new.svg" />
+                      <Image className="d-inline newTag" width={1} height={1} src="/img/new.svg" alt="newTag" />
                     )}
                     <div className="box">
                       <p className="d-inline">

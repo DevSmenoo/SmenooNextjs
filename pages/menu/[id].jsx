@@ -7,8 +7,8 @@ import { useFavorites } from "../../context/FavoritesContext";
 import NavBar from "../../components/NavBar";
 import BottomBar from "../../components/BottomBar";
 import ModalFiltri from "../../components/ModalFiltri";
-import Image from 'next/image';
-import Script from 'next/script';
+import Image from "next/image";
+import Script from "next/script";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -122,20 +122,21 @@ const MenuPage = () => {
         f3: activeFilters.includes("senza glutine") ? "1" : "",
         f4: activeFilters.includes("piccante") ? "1" : "",
       };
-  
+
       const queryString = new URLSearchParams({
         idCategoria: categoryId,
         idLocale: idLocale,
         ...filterParams, // Aggiungi i filtri
       }).toString();
-  
-      const response = await axios.get(`/api/getDishesByCategory?${queryString}`);
+
+      const response = await axios.get(
+        `/api/getDishesByCategory?${queryString}`
+      );
       setDishes(response.data);
     } catch (error) {
       console.error("Error fetching dishes:", error);
     }
   };
-  
 
   useEffect(() => {
     if (!isClient) return;
@@ -189,6 +190,19 @@ const MenuPage = () => {
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
     fetchDishes(categoryId);
+
+    // Rimuove la classe active da tutti i bottoni
+    document.querySelectorAll(".scrollmenu button").forEach((btn) => {
+      btn.classList.remove("active");
+    });
+
+    // Aggiunge la classe active solo al bottone selezionato
+    const selectedButton = document.querySelector(
+      `button[data-id="${categoryId}"]`
+    );
+    if (selectedButton) {
+      selectedButton.classList.add("active");
+    }
   };
 
   const handleFavoriteToggle = (dish) => {
@@ -214,7 +228,9 @@ const MenuPage = () => {
 
   const handleFilterChange = (filter) => {
     setActiveFilters((prev) =>
-      prev.includes(filter) ? prev.filter((f) => f !== filter) : [...prev, filter]
+      prev.includes(filter)
+        ? prev.filter((f) => f !== filter)
+        : [...prev, filter]
     );
   };
 
@@ -230,7 +246,7 @@ const MenuPage = () => {
         idLocale={idLocale}
         background={localeInfo.background}
       />
-      <NavBar localeInfo={localeInfo} />
+      <NavBar localeInfo={localeInfo} onFilterChange={handleFilterChange} />
       <ModalFiltri onFilterChange={handleFilterChange} />
       <input type="hidden" id="filt1" value={Cookies.get("f1") || ""} />
       <input type="hidden" id="filt2" value={Cookies.get("f2") || ""} />
@@ -242,7 +258,9 @@ const MenuPage = () => {
           {categories.map((category) => (
             <button
               key={category.id}
+              data-id={category.id}
               onClick={() => handleCategoryClick(category.id)}
+              className={selectedCategory === category.id ? "active" : ""}
             >
               {category.nome}
             </button>

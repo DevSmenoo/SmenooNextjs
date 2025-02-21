@@ -1,8 +1,9 @@
 import React from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
-
-const ModalFiltri = ({ onFilterChange }) => (
+const ModalFiltri = ({ onFilterChange }) => {
+  console.log("onFilterChange ricevuta:", onFilterChange); // Debug
+  return (
   <div
     className="modal fade"
     id="filtriModal"
@@ -23,14 +24,22 @@ const ModalFiltri = ({ onFilterChange }) => (
         <div className="modal-body">
           <div className="container popupMenuSwitch">
             <div className="d-flex align-items-center">
-              <Image src="/img/Hot.svg" width={1} height={1} alt="Hot Icon" className="imgFiltri" />
+              <Image
+                src="/img/Hot.svg"
+                width={1}
+                height={1}
+                alt="Hot Icon"
+                className="imgFiltri"
+              />
               <p className="filtriModalTitle">Hot</p>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  onChange={() => onFilterChange("piccante")}
+                  onChange={() => {
+                    onFilterChange("piccante");
+                  }}
                 />
                 <label
                   className="form-check-label"
@@ -40,7 +49,13 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex align-items-center">
-              <Image src="/img/Vegano-grigia.svg"  width={1} height={1} className="imgFiltri" alt="vegano-grigia" />
+              <Image
+                src="/img/Vegano-grigia.svg"
+                width={1}
+                height={1}
+                className="imgFiltri"
+                alt="vegano-grigia"
+              />
               <p className="filtriModalTitle">Vegano</p>
               <div className="form-check form-switch">
                 <input
@@ -57,7 +72,13 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex align-items-center">
-              <Image src="/img/Vegetariano-grigia.svg"  width={1} height={1} className="imgFiltri" alt="vegetariano-grigia"/>
+              <Image
+                src="/img/Vegetariano-grigia.svg"
+                width={1}
+                height={1}
+                className="imgFiltri"
+                alt="vegetariano-grigia"
+              />
               <p className="filtriModalTitle">Vegetariano</p>
               <div className="form-check form-switch">
                 <input
@@ -74,7 +95,13 @@ const ModalFiltri = ({ onFilterChange }) => (
             </div>
             <hr />
             <div className="d-flex align-items-center">
-              <Image className="imgFiltri" src="/img/Senza-Glutine-Grigia.svg"  width={1} height={1} alt="senza-glutine-grigia" />
+              <Image
+                className="imgFiltri"
+                src="/img/Senza-Glutine-Grigia.svg"
+                width={1}
+                height={1}
+                alt="senza-glutine-grigia"
+              />
               <p className="filtriModalTitle">Naturalmente privo di glutine</p>
               <div className="form-check form-switch">
                 <input
@@ -95,6 +122,6 @@ const ModalFiltri = ({ onFilterChange }) => (
       </div>
     </div>
   </div>
-);
+)};
 
 export default ModalFiltri;

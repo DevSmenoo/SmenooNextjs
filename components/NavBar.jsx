@@ -6,7 +6,7 @@ import ModalPreferiti from "./ModalPreferiti";
 import ModalFiltri from "./ModalFiltri";
 import ModalLegenda from "./ModalLegenda";
 
-const NavBar = ({ localeInfo }) => {
+const NavBar = ({ localeInfo, onFilterChange }) => {
   const { idLocale } = useLocale();
   const navbarRef = useRef(null);
 
@@ -165,7 +165,7 @@ const NavBar = ({ localeInfo }) => {
 
       {/* Modali */}
       <ModalPreferiti />
-      <ModalFiltri />
+      <ModalFiltri onFilterChange={onFilterChange} />
       <ModalLegenda />
     </nav>
   );
