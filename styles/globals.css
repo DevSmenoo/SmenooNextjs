@@ -16,6 +16,10 @@
     position: absolute;
 }
 
+.App.desktopIndexPad {
+    background-color: unset !important;
+}
+
 body {font-family: 'Roboto', sans-serif;}
 body::-webkit-scrollbar {
   width: 8px;               /* width of the entire scrollbar */
@@ -64,7 +68,7 @@ p,h1 {margin-bottom: 0!important;}
 .logoBox h1{font-weight: bold;font-size: 3vw;}
 .floatL{float: left;}
 .starPr{float: right; padding: 0 !important;}
-.stella{width: 25px !important; height: 25px !important; padding: 0 !important;}
+.stella{width: 20px !important; height: 20px !important; padding: 0 !important;}
 .whiteBoxCourse{background-color: white;padding: 1.5vw 2.5vw 1.5vw 2.5vw;border-radius: 1vw;margin-top: 2vh;}
 p.desc {margin-bottom: 2vh;line-height: 3vh;margin-top: 2vh;}
 .price b {font-weight: 500;}
@@ -103,7 +107,7 @@ div.scrollmenu button:focus {color: #2F2F2F;}
 .popupMenuSwitch{background-color: #F5F5F5;padding: 2vw;border-top-left-radius: 5vw;border-top-right-radius: 5vw;width: 100%;}
 .modal-content{border-top-left-radius: 10vw;border-top-right-radius: 10vw;}
 .bottomBarMenu{display: none;}
-.desktopIndexPad{/*background-color: #8A4B53;*/margin-left: 25vw;margin-right: 25vw;}
+.desktopIndexPad{background-color: unset; margin-left: 25vw;margin-right: 25vw;}
 a:-webkit-any-link:focus-visible {outline-offset: 0;outline: 0;}
 .navbar-collapse.collapsing {left: -75%;transition: height 0s ease;}
 .navbar-collapse.show {left: 0;transition: left 300ms ease-in-out;}
@@ -130,6 +134,7 @@ button.btn-close {position: absolute;right: 23px;top: 13px;}
 #elencoPiatti i {color: white;opacity: 0.8;}
 button[aria-expanded="true"] > span.navbar-toggler-icon {display: block;background-image: url("/img/x-close.svg");}
 .floatR img{margin-left: 0.5vw;}
+.imgFiltri {width: 25px; height: 25px;}
 .infoAll {padding-left: 0.5vw;}
 .descCategory {color: white;margin-top: 2vh;margin-bottom: 4vh;text-align: left;font-weight: bold;font-size: 1vw;line-height: 29px;}
 .boxDescCategory{border-left: 2px solid white;padding: 0vh 3vw 0vh 3vw;margin-left: 2vw;margin-right: 2vw;padding-left: 4vw;padding-right: 4vw;}
@@ -246,7 +251,7 @@ div.scrollmenu button {
 }
 
 .container.whiteBoxCourseModal img {
-    width: 35px;
+    width: 25px;
     height: auto;
 }
 
@@ -265,7 +270,7 @@ div.scrollmenu button {
 	.courseRowImg {left: 16%;margin-top: -18px;height: 68px;}
 }
 @media (max-width: 1360px){
-    .desktopIndexPad{/*background-color: #8A4B53;*/margin-left: 0;margin-right: 0;}
+    .desktopIndexPad{background-color: unset; margin-left: 0;margin-right: 0;}
 }
 @media (max-width: 992px) {
     .bg-menu-header{min-height: 35vh;}
@@ -336,7 +341,7 @@ and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation 
     button[aria-expanded="true"] > span.navbar-toggler-icon {display: block;background-image: url("/img/x-close.svg");}
     .powered{position: absolute;bottom: 10%;}
     .navbar-toggler-iconBis{background-image: url(/img/x-close.svg);}
-    .modal-body-legenda img {padding-right: 4vw;}
+    .modal-body-legenda img {margin-right: 4vw;}
     ul.navbar-nav.me-auto.mb-2.mb-lg-0 img {min-width: 8vw;}
     .navbar-collapse.collapsing{left: -90%;} /*smooth animation side menu*/
 /*    .modal-body img{margin-right: 2vw;}*/
@@ -351,7 +356,6 @@ and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation 
     .newTag {margin-top: -3vh;}
     .btn-close:focus {box-shadow: unset;}
     .nav-link {font-size: 5vw;}
-    .sGlutLeg{margin-top: -10%;}
     hr{margin: 1.7vh 0;}
     nav .powered{width:93%;}
 

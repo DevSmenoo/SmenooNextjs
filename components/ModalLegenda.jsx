@@ -9,7 +9,6 @@ const ModalLegenda = () => (
     tabIndex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
-    data-backdrop="true"
   >
     <div className="modal-dialog-centered modal-dialog">
       <div className="modal-content">
@@ -29,42 +28,42 @@ const ModalLegenda = () => (
         </div>
         <div className="modal-body modal-body-legenda">
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-senza-glutine.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-senza-glutine.svg" width={25} height={25} alt="senza-glutine" />
             <p>Senza glutine</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-vegano.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-vegano.svg" width={25} height={25} alt="vegano" />
             <p>Vegano</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-vegetariano.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-vegetariano.svg" width={25} height={25} alt="vegetariano" />
             <p>Vegetariano</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-biologico.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-biologico.svg" width={25} height={25} alt="biologico" />
             <p>Biologico</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-piccante.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-piccante.svg" width={25} height={25} alt="piccante" />
             <p>Piccante</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-senza-lattosio.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-senza-lattosio.svg" width={25} height={25} alt="senza-lattosio" />
             <p>Senza lattosio</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-congelato.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-congelato.svg" width={25} height={25} alt="congelato" />
             <p>Congelato</p>
           </div>
           <hr />
           <div className="d-flex align-items-center">
-            <Image src="/img/4/legenda-abbattuto.svg" width={1} height={1} />
+            <Image src="/img/2/legenda-abbattuto.svg" width={25} height={25} alt="abbattuto" />
             <p>Abbattuto</p>
           </div>
         </div>

@@ -22,17 +22,15 @@ const ModalFiltri = ({ onFilterChange }) => (
         </div>
         <div className="modal-body">
           <div className="container popupMenuSwitch">
-            <div className="d-flex">
-              <Image src="/img/Hot.svg" width={1} height={1} />
+            <div className="d-flex align-items-center">
+              <Image src="/img/Hot.svg" width={1} height={1} alt="Hot Icon" className="imgFiltri" />
               <p className="filtriModalTitle">Hot</p>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  id="flexSwitchCheckDefault"
                   onChange={() => onFilterChange("piccante")}
-                  width={1} height={1} 
                 />
                 <label
                   className="form-check-label"
@@ -41,15 +39,14 @@ const ModalFiltri = ({ onFilterChange }) => (
               </div>
             </div>
             <hr />
-            <div className="d-flex">
-              <Image src="/img/Vegano-grigia.svg"  width={1} height={1} />
+            <div className="d-flex align-items-center">
+              <Image src="/img/Vegano-grigia.svg"  width={1} height={1} className="imgFiltri" alt="vegano-grigia" />
               <p className="filtriModalTitle">Vegano</p>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  id="flexSwitchCheckDefault"
                   onChange={() => onFilterChange("vegano")}
                 />
                 <label
@@ -59,15 +56,14 @@ const ModalFiltri = ({ onFilterChange }) => (
               </div>
             </div>
             <hr />
-            <div className="d-flex">
-              <Image src="/img/Vegetariano-grigia.svg"  width={1} height={1} />
+            <div className="d-flex align-items-center">
+              <Image src="/img/Vegetariano-grigia.svg"  width={1} height={1} className="imgFiltri" alt="vegetariano-grigia"/>
               <p className="filtriModalTitle">Vegetariano</p>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  id="flexSwitchCheckDefault"
                   onChange={() => onFilterChange("vegetariano")}
                 />
                 <label
@@ -77,15 +73,14 @@ const ModalFiltri = ({ onFilterChange }) => (
               </div>
             </div>
             <hr />
-            <div className="d-flex">
-              <Image className="sGlutLeg" src="/img/Senza-Glutine-Grigia.svg"  width={1} height={1} />
+            <div className="d-flex align-items-center">
+              <Image className="imgFiltri" src="/img/Senza-Glutine-Grigia.svg"  width={1} height={1} alt="senza-glutine-grigia" />
               <p className="filtriModalTitle">Naturalmente privo di glutine</p>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  id="flexSwitchCheckDefault"
                   onChange={() => onFilterChange("senza glutine")}
                 />
                 <label

@@ -34,7 +34,7 @@ export const FavoritesProvider = ({ children }) => {
     <FavoritesContext.Provider
       value={{
         favorites,
-        count: favorites.length, // Esponi direttamente il conteggio
+        count: favorites.length || 0, // Esponi direttamente il conteggio
         addFavorite,
         removeFavorite,
       }}

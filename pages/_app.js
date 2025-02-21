@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <LocaleProvider>
       <FavoritesProvider>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
       </FavoritesProvider>
     </LocaleProvider>
   );
