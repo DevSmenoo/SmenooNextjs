@@ -10,17 +10,22 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.26.0",
+    "@prisma/client": "^6.4.0",
     "axios": "^1.7.8",
     "js-cookie": "^3.0.5",
-    "mysql2": "^3.11.4",
-    "next": "15.0.3",
+    "next": "^15.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
+    "@types/next": "^8.0.7",
+    "@types/node": "^22.13.4",
+    "@types/react": "19.0.10",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3"
+    "eslint-config-next": "15.0.3",
+    "prisma": "^6.4.0",
+    "typescript": "^5.7.3"
   }
 }
