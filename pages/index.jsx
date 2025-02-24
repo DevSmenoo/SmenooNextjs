@@ -154,7 +154,7 @@ const App = () => {
       <section className="mainSecMenuHome">
         <div className="text-center logoBox">
           {localeInfo.logo && <Image className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" width={200} height={200} />}
-          <h1>{localeInfo.nomeLocale}</h1>
+          <h1 className='locale-name'>{localeInfo.nomeLocale}</h1>
           <p className="text-left px-4">{localeInfo.descrizione}</p>
         </div>
         <br />
