@@ -1,7 +1,7 @@
 import React from "react";
 import { useFavorites } from "../context/FavoritesContext";
 import { useLocale } from "../context/LocaleContext";
-import Image from 'next/image';
+import Image from "next/image";
 
 const ModalPreferiti = () => {
   const { favorites, removeFavorite } = useFavorites();
@@ -34,7 +34,13 @@ const ModalPreferiti = () => {
                 <div key={dish.id} className="container whiteBoxCourseModal">
                   <div className="d-flex">
                     {dish.tag && dish.tag.includes("new") && (
-                      <Image className="d-inline newTag" src="/img/new.svg" />
+                      <Image
+                        className="d-inline newTag"
+                        width={1}
+                        height={1}
+                        src="/img/new.svg"
+                        alt="newTag"
+                      />
                     )}
                     <div className="box">
                       <p className="d-inline">
@@ -120,7 +126,13 @@ const ModalPreferiti = () => {
                       />
                     )}
                     {dish.tag && dish.tag.includes("vegano") && (
-                      <Image src={`/img/${idLocale}/legenda-vegano.svg`} alt="Vegano" className="floatR" width={1} height={1}/>
+                      <Image
+                        src={`/img/${idLocale}/legenda-vegano.svg`}
+                        alt="Vegano"
+                        className="floatR"
+                        width={1}
+                        height={1}
+                      />
                     )}
                     {dish.tag && dish.tag.includes("vegetariano") && (
                       <Image
@@ -132,10 +144,22 @@ const ModalPreferiti = () => {
                       />
                     )}
                     {dish.tag && dish.tag.includes("biologico") && (
-                      <Image src={`/img/${idLocale}/legenda-biologico.svg`} alt="Biologico" className="floatR" width={1} height={1}/>
+                      <Image
+                        src={`/img/${idLocale}/legenda-biologico.svg`}
+                        alt="Biologico"
+                        className="floatR"
+                        width={1}
+                        height={1}
+                      />
                     )}
                     {dish.tag && dish.tag.includes("piccante") && (
-                      <Image src={`/img/${idLocale}/legenda-piccante.svg`} alt="Piccante" className="floatR" width={1} height={1}/>
+                      <Image
+                        src={`/img/${idLocale}/legenda-piccante.svg`}
+                        alt="Piccante"
+                        className="floatR"
+                        width={1}
+                        height={1}
+                      />
                     )}
                     {dish.tag && dish.tag.includes("senza lattosio") && (
                       <Image
@@ -147,10 +171,22 @@ const ModalPreferiti = () => {
                       />
                     )}
                     {dish.tag && dish.tag.includes("congelato") && (
-                      <Image src={`/img/${idLocale}/legenda-congelato.svg`} alt="Congelato" className="floatR" width={1} height={1}/>
+                      <Image
+                        src={`/img/${idLocale}/legenda-congelato.svg`}
+                        alt="Congelato"
+                        className="floatR"
+                        width={1}
+                        height={1}
+                      />
                     )}
                     {dish.tag && dish.tag.includes("abbattuto") && (
-                      <Image src={`/img/${idLocale}/legenda-abbattuto.svg`} alt="Abbattuto" className="floatR" width={1} height={1}/>
+                      <Image
+                        src={`/img/${idLocale}/legenda-abbattuto.svg`}
+                        alt="Abbattuto"
+                        className="floatR"
+                        width={1}
+                        height={1}
+                      />
                     )}
                   </div>
                 </div>
@@ -159,7 +195,13 @@ const ModalPreferiti = () => {
               <div className="emptyPref">
                 <p>
                   Aggiungi piatti dal menu cliccando sulla{" "}
-                  <Image src="/img/Stella-preferiti.svg" alt="Stella preferiti" width={1} height={1} />{" "}
+                  <Image
+                    className="stella"
+                    src="/img/Stella-preferiti.svg"
+                    alt="Stella preferiti"
+                    width={1}
+                    height={1}
+                  />{" "}
                   come promemoria per il tuo ordine!
                 </p>
               </div>
