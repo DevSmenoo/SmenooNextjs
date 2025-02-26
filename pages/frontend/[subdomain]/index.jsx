@@ -72,11 +72,11 @@ const GlobalStyle = createGlobalStyle`
     }
     .stickyNavScroll {
       background-image: ${(props) =>
-        `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
+        `url(/img/${props.idLocale}/bg-ardesia-mobile-4.jpg)`};
     }
     body {
       background-image: ${(props) =>
-        `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
+        `url(/img/${props.idLocale}/bg-ardesia-mobile-4.jpg)`};
       background-size: cover;
       background-repeat: no-repeat;
       min-height: 100vh;
