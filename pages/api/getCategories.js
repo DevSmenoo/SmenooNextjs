@@ -71,7 +71,7 @@ export default async function handler(req, res) {
     
     const rows = await prisma.categoria.findMany({
       where: {
-        flagVisibile: true,
+        flagVisibile: 1,
         idLocale,
         ...(filters.length > 0 && { OR: filters }), // Apply dynamic filters if any
         assCatMenu: {
