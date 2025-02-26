@@ -188,7 +188,7 @@ const App = () => {
               rel="noopener noreferrer"
             >
               <Image
-                className="d-inline px-3"
+                className="d-inline px-3 social-img"
                 src="/img/instagram.svg"
                 alt="Instagram"
                 width={30}
