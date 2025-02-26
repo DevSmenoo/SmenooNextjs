@@ -38,6 +38,7 @@ model categoria {
   idLocale        Int?
   dataInserimento DateTime @default(now()) @db.DateTime(0)
   assCatMenu      assCatMenu[] // Aggiungi questa relazione
+  portata         portata[] @relation("CategoriaPortata")
 }
 
 model lingueTrad {
@@ -107,6 +108,7 @@ model portata {
   alleOre           String? @db.VarChar(20)
   flagTuttoIlGiorno String? @db.VarChar(5)
   ordineStampa      Int?
+  categoria         categoria? @relation(fields: [idCategoria], references: [id], name: "CategoriaPortata")
 }
 
 model preferiti {
