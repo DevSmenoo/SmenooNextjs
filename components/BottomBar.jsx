@@ -88,5 +88,3 @@ const BottomBar = ({ activeFiltersCount }) => {
 };
 
 export default BottomBar;
-
-// Test
