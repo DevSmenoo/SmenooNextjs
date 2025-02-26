@@ -1,5 +1,6 @@
 // api/getCategories.js
-const prisma = require('../../utils/prisma').default; // ✅ Import the default export
+// const prisma = require('../../utils/prisma').default; // ✅ Import the default export
+const prisma = require('../../prisma').default; // ✅ Import the default export
 
 export default async function handler(req, res) {
   // Configurazione CORS
@@ -41,6 +42,8 @@ export default async function handler(req, res) {
     // `;
     // const [rows] = await connection.execute(sql, [idLocale, idMenu, idMenu]);
 
+    console.log('Richiesta ricevuta:', req.query);
+
     // Construct dynamic filtering conditions (Prisma cannot parse LIKE queries)
     const filters = [];
     if (req.query.f1) filters.push({ tag: { contains: 'vegano' } });
@@ -55,6 +58,12 @@ export default async function handler(req, res) {
     const host = req.headers.host; // Get the host from the request
     const subdomain = host.split('.')[0]; // Extract the subdomain
     console.log('subdomain:', subdomain);
+
+    if (!subdomain) {
+      console.error('Subdomain non trovato');
+      res.status(400).json({ error: 'Subdomain non valido' });
+      return;
+    }
     // Use the database to get the id from the row of the Locali table where the root matches the subdomain
     const idrow = await prisma.locali.findFirst({
       where: { root: subdomain },
