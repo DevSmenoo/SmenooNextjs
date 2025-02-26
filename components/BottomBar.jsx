@@ -5,8 +5,7 @@ import ModalFiltri from "./ModalFiltri";
 import ModalMenuSwitch from "./ModalMenuSwitch";
 import ModalSommelier from "./ModalSommelier";
 import ModalLegenda from "./ModalLegenda";
-import Image from 'next/image';
-
+import Image from "next/image";
 
 const BottomBar = ({ activeFiltersCount }) => {
   const { count: favoriteCount } = useFavorites();
@@ -41,13 +40,14 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="sommelierIcon"
         name="image5"
         src="/img/sommelier-inactive.svg"
-        width={1} height={1} 
+        width={1}
+        height={1}
       />
       {activeFiltersCount > 0 && (
         <div className="counterBoxProvModalFiltri" id="filtrBoll">
           <p className="d-inline text-white"></p>
           <span id="cntPref">{activeFiltersCount}</span>{" "}
-            {/* Mostra il conteggio */}
+          {/* Mostra il conteggio */}
         </div>
       )}
       <Image
@@ -57,9 +57,9 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="filtriIcon"
         name="image3"
         src="/img/filtri-inactive.svg"
-        width={1} height={1} 
+        width={1}
+        height={1}
       />
-      <Image className="dotActive" src="/img/blue-active.svg" width={1} height={1} />
       <Image
         data-bs-toggle="modal"
         data-bs-target="#legendaModal"
@@ -67,7 +67,8 @@ const BottomBar = ({ activeFiltersCount }) => {
         id="legendaIcon"
         name="image4"
         src="/img/legenda-inactive.svg"
-        width={1} height={1} 
+        width={1}
+        height={1}
       />
 
       {/* Modali */}
@@ -81,3 +82,5 @@ const BottomBar = ({ activeFiltersCount }) => {
 };
 
 export default BottomBar;
+
+// Test

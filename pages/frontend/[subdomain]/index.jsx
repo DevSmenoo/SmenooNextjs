@@ -1,10 +1,10 @@
 // pages/frontend/[subdomain]/index.jsx
-import React, { useEffect, useState, useCallback } from 'react';
-import { useLocale } from '../../../context/LocaleContext'; // Importa il contesto
-import MenuButton from '../../../components/MenuButton';
-import { createGlobalStyle } from 'styled-components';
-import Script from 'next/script';
-import Image from 'next/image';
+import React, { useEffect, useState, useCallback } from "react";
+import { useLocale } from "../../../context/LocaleContext"; // Importa il contesto
+import MenuButton from "../../../components/MenuButton";
+import { createGlobalStyle } from "styled-components";
+import Script from "next/script";
+import Image from "next/image";
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -13,21 +13,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .courseRow {
-    background-color: ${props => props.colorMain2};
+    background-color: ${(props) => props.colorMain2};
     width: 100%;
   }
 
   .desktopIndexPad {
-    background-color: ${props => props.colorMain2};
+    background-color: ${(props) => props.colorMain2};
   }
 
   .bg-menu-header {
-    background-image: ${props => `url(/img/${props.idLocale}/${props.background})`};
+    background-image: ${(props) =>
+      `url(/img/${props.idLocale}/${props.background})`};
   }
 
   #modalTimer .modal-footer button {
-    background-color: ${props => props.colorMain1};
-    border-color: ${props => props.colorMain1};
+    background-color: ${(props) => props.colorMain1};
+    border-color: ${(props) => props.colorMain1};
   }
 
   div.scrollmenu a:focus, .nav-link, .navbar-nav .nav-link.active, .navbar-nav .show>.nav-link, div.scrollmenu a {
@@ -43,10 +44,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .bg-head {
-    background-color: ${props => props.colorMain2};
+    background-color: ${(props) => props.colorMain2};
   }
 
-  ${props => props.idLocale === 2 && `
+  ${(props) =>
+    props.idLocale === 2 &&
+    `
     @font-face {
       font-family: 'Century Gothic Bold';
       src: url('/font/CenturyGothicPaneuropeanBold.ttf');
@@ -68,10 +71,12 @@ const GlobalStyle = createGlobalStyle`
       font-display: swap;
     }
     .stickyNavScroll {
-      background-image: ${props => `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
+      background-image: ${(props) =>
+        `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
     }
     body {
-      background-image: ${props => `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
+      background-image: ${(props) =>
+        `url(/img/${props.idLocale}/bg-ardesia-mobile-3.jpg)`};
       background-size: cover;
       background-repeat: no-repeat;
       min-height: 100vh;
@@ -110,13 +115,15 @@ const App = () => {
       const response = await fetch(`/api/getLocaleInfo?idLocale=${idLocale}`);
       const text = await response.text();
       if (!response.ok) {
-        throw new Error(`Network response was not ok. Status: ${response.status}`);
+        throw new Error(
+          `Network response was not ok. Status: ${response.status}`
+        );
       }
       const data = JSON.parse(text);
       setLocaleInfo(data);
     } catch (error) {
       setError(error.message);
-      console.error('There was a problem with the fetch operation:', error);
+      console.error("There was a problem with the fetch operation:", error);
     }
   }, [idLocale]);
 
@@ -125,14 +132,16 @@ const App = () => {
       const response = await fetch(`/api/getMenus?idLocale=${idLocale}`);
       const text = await response.text();
       if (!response.ok) {
-        throw new Error(`Network response was not ok. Status: ${response.status}`);
+        throw new Error(
+          `Network response was not ok. Status: ${response.status}`
+        );
       }
       const data = JSON.parse(text);
-      console.log('Menus:', data);
+      console.log("Menus:", data);
       setMenus(data);
     } catch (error) {
       setError(error.message);
-      console.error('There was a problem with the fetch operation:', error);
+      console.error("There was a problem with the fetch operation:", error);
     }
   }, [idLocale]);
 
@@ -154,36 +163,88 @@ const App = () => {
       <section className="bg-menu-header"></section>
       <section className="mainSecMenuHome">
         <div className="text-center logoBox">
-          {localeInfo.logo && <Image className="duardiLogo" src={`/img/${idLocale}/${localeInfo.logo}`} alt="Logo" width={200} height={200} />}
-          <h1>{localeInfo.nomeLocale}</h1>
+          {localeInfo.logo && (
+            <Image
+              className="duardiLogo"
+              src={`/img/${idLocale}/${localeInfo.logo}`}
+              alt="Logo"
+              width={200}
+              height={200}
+            />
+          )}
+          <h1 className="locale-name">{localeInfo.nomeLocale}</h1>
           <p className="text-left px-4">{localeInfo.descrizione}</p>
         </div>
         <br />
-        {menus.map(menu => (
+        {menus.map((menu) => (
           <MenuButton key={menu.id} menu={menu} />
         ))}
         <div className="text-center moveSocialHome">
           {localeInfo.instagramLink && (
-            <a href={localeInfo.instagramLink} target="_blank" title={`Pagina Instagram di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/instagram.svg" alt="Instagram" width={30} height={30} />
+            <a
+              href={localeInfo.instagramLink}
+              target="_blank"
+              title={`Pagina Instagram di ${localeInfo.nomeLocale}`}
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="d-inline px-3 social-img"
+                src="/img/instagram.svg"
+                alt="Instagram"
+                width={30}
+                height={30}
+              />
             </a>
           )}
           {localeInfo.facebookLink && (
-            <a href={localeInfo.facebookLink} target="_blank" title={`Pagina Facebook di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/fb.svg" alt="Facebook" width={30} height={30} />
+            <a
+              href={localeInfo.facebookLink}
+              target="_blank"
+              title={`Pagina Facebook di ${localeInfo.nomeLocale}`}
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="d-inline px-3 social-img"
+                src="/img/fb.svg"
+                alt="Facebook"
+                width={30}
+                height={30}
+              />
             </a>
           )}
           {localeInfo.tiktokLink && (
-            <a href={localeInfo.tiktokLink} target="_blank" title={`Pagina TikTok di ${localeInfo.nomeLocale}`} rel="noopener noreferrer">
-              <Image className="d-inline px-3" src="/img/tt.svg" alt="TikTok" width={30} height={30} />
+            <a
+              href={localeInfo.tiktokLink}
+              target="_blank"
+              title={`Pagina TikTok di ${localeInfo.nomeLocale}`}
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="d-inline px-3 social-img"
+                src="/img/tt.svg"
+                alt="TikTok"
+                width={30}
+                height={30}
+              />
             </a>
           )}
         </div>
         <div className="footer">
-          <br /><br />
+          <br />
+          <br />
           <div className="text-center text-white">
-            <a href="https://smenoo.it/" target="_blank" rel="noopener noreferrer">
-              <Image className="d-inline poweredSmenoo" src="/img/Logo-smenoo-home.svg" alt="Smenoo" width={1} height={1} />
+            <a
+              href="https://smenoo.it/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="d-inline poweredSmenoo"
+                src="/img/Logo-smenoo-home.svg"
+                alt="Smenoo"
+                width={1}
+                height={1}
+              />
             </a>
           </div>
         </div>
@@ -193,7 +254,7 @@ const App = () => {
       <Script src="/js/bootstrap.bundle.js" strategy="lazyOnload" />
       <Script src="/js/jquery-3.6.1.min.js" strategy="lazyOnload" />
 
-      {((localeInfo.timer === true) || (localeInfo.scritta === true)) && (
+      {(localeInfo.timer === true || localeInfo.scritta === true) && (
         <Script id="modal-timer" strategy="afterInteractive">
           {`
             window.addEventListener('DOMContentLoaded', () => {

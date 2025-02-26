@@ -10,20 +10,18 @@ const ModalSommelier = () => (
   >
     <div className="modal-dialog-centered modal-dialog">
       <div className="modal-content">
-        <div className="modal-header modal-header-cerca">
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
         <div className="modal-body modal-body-cerca">
           <div className="container">
             <div className="row">
               <div className="col-12">
                 <div className="form-group">
                   <h3 className="text-center">Sommelier Digitale</h3>
+                  <button
+                    type="button"
+                    className="btn-close d-inline"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                   <div id="sommelierVirtuale"></div>
                 </div>
               </div>
