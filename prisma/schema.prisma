@@ -26,6 +26,7 @@ model assPortMenu {
   idPortata       Int?
   idMenu          Int?
   dataInserimento DateTime @default(now()) @db.DateTime(0)
+  portata         portata? @relation(fields: [idPortata], references: [id])
 }
 
 model categoria {
@@ -109,6 +110,7 @@ model portata {
   flagTuttoIlGiorno String? @db.VarChar(5)
   ordineStampa      Int?
   categoria         categoria? @relation(fields: [idCategoria], references: [id], name: "CategoriaPortata")
+  assPortMenu       assPortMenu[]  // relazione con assPortMenu
 }
 
 model preferiti {
