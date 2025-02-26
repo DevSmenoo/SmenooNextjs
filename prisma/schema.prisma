@@ -18,6 +18,7 @@ model assCatMenu {
   idCategoria     Int?
   idMenu          Int?
   dataInserimento DateTime @default(now()) @db.DateTime(0)
+  categoria       categoria? @relation(fields: [idCategoria], references: [id])
 }
 
 model assPortMenu {
@@ -36,6 +37,7 @@ model categoria {
   flagVisibile    Int?     @default(0)
   idLocale        Int?
   dataInserimento DateTime @default(now()) @db.DateTime(0)
+  assCatMenu      assCatMenu[] // Aggiungi questa relazione
 }
 
 model lingueTrad {
