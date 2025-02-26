@@ -377,6 +377,10 @@ div.scrollmenu button:focus {
     padding-right: 6vw;
 }
 
+.social-img {
+    width: 54px;
+}
+
 .bottomBarMenu img.floatR {
     padding-left: 2vw;
     padding-right: 0vw;

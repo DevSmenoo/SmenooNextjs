@@ -204,7 +204,7 @@ const App = () => {
               rel="noopener noreferrer"
             >
               <Image
-                className="d-inline px-3"
+                className="d-inline px-3 social-img"
                 src="/img/fb.svg"
                 alt="Facebook"
                 width={30}
@@ -220,7 +220,7 @@ const App = () => {
               rel="noopener noreferrer"
             >
               <Image
-                className="d-inline px-3"
+                className="d-inline px-3 social-img"
                 src="/img/tt.svg"
                 alt="TikTok"
                 width={30}
