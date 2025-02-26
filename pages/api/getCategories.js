@@ -12,6 +12,7 @@ export default async function handler(req, res) {
     res.status(200).end();
     return;
   }
+  console.log('Richiesta ricevuta:', req.query);
 
   try {
     // Recupera i filtri dai parametri della query
